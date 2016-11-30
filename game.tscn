@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=1]
+[ext_resource path="res://game.gd" type="Script" id=1]
+[ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=2]
 
 [node name="game" type="Node2D"]
+
+script/script = ExtResource( 1 )
 
 [node name="ship" type="Sprite" parent="."]
 
 transform/pos = Vector2( 500, 500 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 

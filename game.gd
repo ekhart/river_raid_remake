@@ -4,20 +4,32 @@ const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 const BULLET_SPEED = 300
 const BULLET_Y_OFFSET = 50
+const ENEMY_MAX_WIGGLE = 1000
 
 var ship
 var bullet
+var enemy
 var is_bullet
 
 func _ready():
 	ship = get_node("ship")
 	bullet = get_node("bullet")
 	bullet.hide()
+	enemy = get_node("enemy")
 	set_process(true)
 
 func _process(delta):
 	ship.set_pos(get_ship_pos(delta))
+	process_bullet(delta)
+	process_enemy(delta)
 	
+func process_enemy(delta):
+	var enemy_pos = enemy.get_pos()
+	enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
+	enemy.set_pos(enemy_pos)
+	
+
+func process_bullet(delta):
 	var bullet_pos = bullet.get_pos()
 	
 	if Input.is_action_pressed("ui_accept") and not is_bullet:

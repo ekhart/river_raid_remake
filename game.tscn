@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=2]
 [ext_resource path="res://gfx/Bez nazwy 1.png" type="Texture" id=3]
+[ext_resource path="res://gfx/helikopter.png" type="Texture" id=4]
 
 [node name="game" type="Node2D"]
 
@@ -19,5 +20,10 @@ transform/pos = Vector2( 503.504, 448.821 )
 transform/scale = Vector2( -4.08485, -3.66528 )
 texture = ExtResource( 3 )
 modulate = Color( 0.679688, 0.188507, 0.188507, 1 )
+
+[node name="enemy" type="Sprite" parent="."]
+
+transform/pos = Vector2( 507.011, 170.55 )
+texture = ExtResource( 4 )
 
 

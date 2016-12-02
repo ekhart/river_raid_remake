@@ -7,6 +7,7 @@ const BULLET_Y_OFFSET = 50
 
 var ship
 var bullet
+var is_bullet
 
 func _ready():
 	ship = get_node("ship")
@@ -19,14 +20,16 @@ func _process(delta):
 	
 	var bullet_pos = bullet.get_pos()
 	
-	if (Input.is_action_pressed("ui_accept")):
+	if Input.is_action_pressed("ui_accept") and not is_bullet:
 		var ship_pos = ship.get_pos()
 		bullet_pos.x = ship_pos.x
 		bullet_pos.y = ship_pos.y - BULLET_Y_OFFSET
 		bullet.show()
+		is_bullet = true
 	
 	if (bullet_pos.y < 0):
 		bullet.hide()
+		is_bullet = false
 		
 	if (bullet.is_visible()):
 		bullet_pos.y += -BULLET_SPEED * delta

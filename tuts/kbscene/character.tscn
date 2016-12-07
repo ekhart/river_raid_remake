@@ -9,7 +9,7 @@ radius = 30.0
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends KinematicBody2D\n\nconst GRAVITY = 200.0\n\nvar velocity = Vector2()\n\nfunc _ready():\n\tset_fixed_process(true)\n\nfunc _fixed_process(delta):\n\t# move(Vector2(0, 1)) # move down 1 pixel per physics frame\n\t\n\tvelocity.y += delta * GRAVITY\n\t\n\tvar motion = velocity * delta\n\tmove(motion)"
+script/source = "extends KinematicBody2D\n\nconst GRAVITY = 200.0\nconst WALK_SPEED = 200\n\nvar velocity = Vector2()\n\nfunc _ready():\n\tset_fixed_process(true)\n\nfunc _fixed_process(delta):\n\t# move(Vector2(0, 1)) # move down 1 pixel per physics frame\n\t\n\tvelocity.y += delta * GRAVITY\n\t\n\tif Input.is_action_pressed(\"ui_left\"):\n\t\tvelocity.x = -WALK_SPEED\n\telif Input.is_action_pressed(\"ui_right\"):\n\t\tvelocity.x = WALK_SPEED\n\telse:\n\t\tvelocity.x = 0\n\t\n\tvar motion = velocity * delta\n\tmove(motion)"
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 

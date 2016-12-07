@@ -19,6 +19,7 @@ func _ready():
 	
 	enemy = get_node("enemy")
 	enemy.connect("body_enter", self, "_on_enemy_body_enter")
+	enemy.connect("area_enter", self, "_on_enemy_area_enter")
 	
 	set_process(true)
 
@@ -33,10 +34,18 @@ func process_enemy(delta):
 	# enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
 	enemy.set_pos(enemy_pos)
 	
-	
-func _on_enemy_body_enter(body):
+
+func _on_enemy_body_enter(body): 	# this function isnt called
 	enemy.hide()
+
+
+func _on_enemy_area_enter(body):
+	enemy.hide()
+	# turn off area
 	
+	bullet.hide()
+	is_bullet = false
+
 
 func process_bullet(delta):
 	var bullet_pos = bullet.get_pos()

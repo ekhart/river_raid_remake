@@ -4,7 +4,7 @@ const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 const BULLET_SPEED = 300
 const BULLET_Y_OFFSET = 50
-const ENEMY_MAX_WIGGLE = 1000
+const ENEMY_MAX_WIGGLE = 5
 
 var ship
 var bullet
@@ -22,18 +22,27 @@ func _ready():
 	enemy.connect("area_enter", self, "_on_enemy_area_enter")
 	
 	set_process(true)
+	set_fixed_process(true)
+	
+	var time = OS.get_ticks_msec()
+	var h = time
 
 
 func _process(delta):
 	ship.set_pos(get_ship_pos(delta))
 	process_bullet(delta)
+	
+	
+func _fixed_process(delta):
 	process_enemy(delta)
 	
 	
 func process_enemy(delta):
 	if has_node("enemy"):
 		var enemy_pos = enemy.get_pos()
-		# enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
+		var tics = OS.get_ticks_msec()
+		var x = tics % 100000 / 200
+		enemy_pos.x += ENEMY_MAX_WIGGLE * cos(x)
 		enemy.set_pos(enemy_pos)
 	
 
@@ -84,5 +93,3 @@ func get_ship_pos(delta):
 		ship_pos.x += SHIP_VERTICAL_SPEED * delta
 	
 	return ship_pos
-	
-	

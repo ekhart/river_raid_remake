@@ -13,9 +13,13 @@ var is_bullet
 
 func _ready():
 	ship = get_node("ship")
+	
 	bullet = get_node("bullet")
 	bullet.hide()
+	
 	enemy = get_node("enemy")
+	enemy.connect("body_enter", self, "_on_enemy_body_enter")
+	
 	set_process(true)
 
 func _process(delta):
@@ -23,10 +27,15 @@ func _process(delta):
 	process_bullet(delta)
 	process_enemy(delta)
 	
+	
 func process_enemy(delta):
 	var enemy_pos = enemy.get_pos()
-	enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
+	# enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
 	enemy.set_pos(enemy_pos)
+	
+	
+func _on_enemy_body_enter(body):
+	enemy.hide()
 	
 
 func process_bullet(delta):
@@ -39,7 +48,7 @@ func process_bullet(delta):
 		bullet.show()
 		is_bullet = true
 	
-	if (bullet_pos.y < 0):
+	if (bullet_pos.y < 0): # change to on screen exit
 		bullet.hide()
 		is_bullet = false
 		

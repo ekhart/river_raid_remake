@@ -23,6 +23,7 @@ func _ready():
 	
 	set_process(true)
 
+
 func _process(delta):
 	ship.set_pos(get_ship_pos(delta))
 	process_bullet(delta)
@@ -30,9 +31,10 @@ func _process(delta):
 	
 	
 func process_enemy(delta):
-	var enemy_pos = enemy.get_pos()
-	# enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
-	enemy.set_pos(enemy_pos)
+	if has_node("enemy"):
+		var enemy_pos = enemy.get_pos()
+		# enemy_pos.x = ENEMY_MAX_WIGGLE * sin(delta)
+		enemy.set_pos(enemy_pos)
 	
 
 func _on_enemy_body_enter(body): 	# this function isnt called
@@ -41,7 +43,7 @@ func _on_enemy_body_enter(body): 	# this function isnt called
 
 func _on_enemy_area_enter(body):
 	enemy.hide()
-	# turn off area
+	enemy.queue_free()
 	
 	bullet.hide()
 	is_bullet = false

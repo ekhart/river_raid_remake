@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 const BULLET_SPEED = 300
@@ -10,6 +11,7 @@ var ship
 var bullet
 var enemy
 var is_bullet
+
 
 func _ready():
 	ship = get_node("ship")
@@ -23,13 +25,12 @@ func _ready():
 	
 	set_process(true)
 	set_fixed_process(true)
-	
-	var time = OS.get_ticks_msec()
-	var h = time
 
 
 func _process(delta):
-	ship.set_pos(get_ship_pos(delta))
+	if is_ship():
+		ship.set_pos(get_ship_pos(delta))
+	
 	process_bullet(delta)
 	
 	
@@ -51,11 +52,15 @@ func _on_enemy_body_enter(body): 	# this function isnt called
 
 
 func _on_enemy_area_enter(body):
-	enemy.hide()
-	enemy.queue_free()
-	
-	bullet.hide()
-	is_bullet = false
+	if body == bullet:
+		enemy.hide()
+		enemy.queue_free()
+		
+		bullet.hide()
+		is_bullet = false
+		
+	if body == ship:
+		ship.queue_free()
 
 
 func process_bullet(delta):
@@ -78,6 +83,9 @@ func process_bullet(delta):
 
 
 func get_ship_pos(delta):
+	if not is_ship():
+		return
+	
 	var ship_pos = ship.get_pos()
 	
 	if (Input.is_action_pressed("ui_up")):
@@ -93,3 +101,7 @@ func get_ship_pos(delta):
 		ship_pos.x += SHIP_VERTICAL_SPEED * delta
 	
 	return ship_pos
+
+
+func is_ship():
+	return has_node("ship")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://tileset.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="wall" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[node name="floor" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+offset = Vector2( 100, 0 )
+region = true
+region_rect = Rect2( 50, 0, 50, 50 )
+
+[node name="ramp_up" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+offset = Vector2( 200, 0 )
+region = true
+region_rect = Rect2( 100, 0, 50, 50 )
+
+[node name="rump_down" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+offset = Vector2( 0, 100 )
+region = true
+region_rect = Rect2( 150, 0, 50, 50 )
+
+[node name="background" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+offset = Vector2( 100, 100 )
+region = true
+region_rect = Rect2( 200, 0, 50, 50 )
+
+

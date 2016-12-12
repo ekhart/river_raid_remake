@@ -102,7 +102,6 @@ _update_shape_index = 0
 [node name="rump_down" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
-offset = Vector2( 0, 100 )
 region = true
 region_rect = Rect2( 149, 0, 50, 50 )
 
@@ -110,7 +109,7 @@ region_rect = Rect2( 149, 0, 50, 50 )
 
 input/pickable = false
 shapes/0/shape = SubResource( 4 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 100 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -121,7 +120,6 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rump_down/StaticBody2D"]
 
-transform/pos = Vector2( 0, 100 )
 shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
@@ -129,7 +127,6 @@ _update_shape_index = 0
 [node name="background" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
-offset = Vector2( 100, 100 )
 region = true
 region_rect = Rect2( 200, 0, 50, 50 )
 

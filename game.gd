@@ -14,6 +14,7 @@ var is_bullet
 var enemy
 var tile_map
 
+
 func _ready():
 	tile_map = get_node("TileMap")
 	
@@ -22,6 +23,8 @@ func _ready():
 	
 	bullet = get_node("bullet")
 	bullet.hide()
+	bullet.connect("body_enter", self, "_on_bullet_body_enter")
+	bullet.connect("area_enter", self, "_on_bullet_area_enter")
 	
 	enemy = get_node("enemy")
 	enemy.connect("body_enter", self, "_on_enemy_body_enter")
@@ -68,10 +71,20 @@ func _on_enemy_area_enter(body):
 		ship.queue_free()
 
 
+func _on_bullet_body_enter(body):
+	if body == tile_map:
+		bullet.hide()
+		is_bullet = false
+
+
+func _on_bullet_area_enter(body):
+	_on_bullet_body_enter(body)
+
+
 func process_bullet(delta):
 	var bullet_pos = bullet.get_pos()
 	
-	if Input.is_action_pressed("ui_accept") and not is_bullet:
+	if Input.is_action_pressed("ui_accept") and not is_bullet and has_node("ship"):
 		var ship_pos = ship.get_pos()
 		bullet_pos.x = ship_pos.x
 		bullet_pos.y = ship_pos.y - BULLET_Y_OFFSET

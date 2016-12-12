@@ -10,12 +10,15 @@ const ENEMY_VERTICAL_SPEED = 1
 
 var ship
 var bullet
-var enemy
 var is_bullet
-
+var enemy
+var tile_map
 
 func _ready():
+	tile_map = get_node("TileMap")
+	
 	ship = get_node("ship")
+	ship.connect("body_enter", self, "_on_ship_body_enter")
 	
 	bullet = get_node("bullet")
 	bullet.hide()
@@ -50,7 +53,7 @@ func process_enemy(delta):
 	
 
 func _on_enemy_body_enter(body):
-	if body == get_node("TileMap"):
+	if body == tile_map:
 		enemy.queue_free()
 
 
@@ -82,6 +85,11 @@ func process_bullet(delta):
 	if (bullet.is_visible()):
 		bullet_pos.y += -BULLET_SPEED * delta
 		bullet.set_pos(bullet_pos)
+
+
+func _on_ship_body_enter(body):
+	if body == tile_map:
+		ship.queue_free()
 
 
 func get_ship_pos(delta):

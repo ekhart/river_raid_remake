@@ -1,12 +1,10 @@
 [gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
-[ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=2]
-[ext_resource path="res://gfx/helikopter.png" type="Texture" id=3]
-[ext_resource path="res://gfx/Bez nazwy 1.png" type="Texture" id=4]
-
-[sub_resource type="TileSet" id=4]
-
+[ext_resource path="res://tileset.res" type="TileSet" id=2]
+[ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=3]
+[ext_resource path="res://gfx/helikopter.png" type="Texture" id=4]
+[ext_resource path="res://gfx/Bez nazwy 1.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -30,8 +28,8 @@ script/script = ExtResource( 1 )
 [node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
-tile_set = SubResource( 4 )
-cell/size = Vector2( 32, 32 )
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 50, 50 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
@@ -43,7 +41,7 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray(  )
+tile_data = IntArray( 327689, 0, 327690, 0 )
 
 [node name="ship" type="Area2D" parent="."]
 
@@ -60,7 +58,7 @@ angular_damp = 1.0
 
 [node name="sprite" type="Sprite" parent="ship"]
 
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ship"]
 
@@ -85,7 +83,7 @@ angular_damp = 1.0
 
 [node name="sprite" type="Sprite" parent="enemy"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
 
@@ -111,7 +109,7 @@ angular_damp = 1.0
 
 transform/rot = 180.0
 transform/scale = Vector2( 4.08485, 3.66528 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 modulate = Color( 0.679688, 0.188507, 0.188507, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]

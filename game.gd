@@ -6,6 +6,7 @@ const SHIP_VERTICAL_SPEED = 150
 const BULLET_SPEED = 300
 const BULLET_Y_OFFSET = 50
 const ENEMY_MAX_WIGGLE = 5
+const ENEMY_VERTICAL_SPEED = 1
 
 var ship
 var bullet
@@ -44,15 +45,17 @@ func process_enemy(delta):
 		var tics = OS.get_ticks_msec()
 		var x = tics % 100000 / 200
 		enemy_pos.x += ENEMY_MAX_WIGGLE * cos(x)
+		enemy_pos.y += ENEMY_VERTICAL_SPEED
 		enemy.set_pos(enemy_pos)
 	
 
 func _on_enemy_body_enter(body): 	# this function isnt called
-	enemy.hide()
+	# enemy.hide()
+	pass
 
 
 func _on_enemy_area_enter(body):
-	if body == bullet:
+	if body == bullet and is_bullet:
 		enemy.hide()
 		enemy.queue_free()
 		

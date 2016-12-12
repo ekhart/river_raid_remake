@@ -5,17 +5,17 @@
 [ext_resource path="res://gfx/helikopter.png" type="Texture" id=3]
 [ext_resource path="res://gfx/Bez nazwy 1.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 22.4196 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
@@ -28,7 +28,7 @@ script/script = ExtResource( 1 )
 
 transform/pos = Vector2( 500, 500 )
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819697, -5.45415 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -44,7 +44,7 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( 0.819697, -5.45415 )
 transform/scale = Vector2( 1.71108, 0.754618 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -52,7 +52,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 550, 170.55 )
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 3.57125, 0, 0, 1.56102, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -67,7 +67,7 @@ texture = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
 
 transform/scale = Vector2( 3.57125, 1.56102 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -75,7 +75,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 503.504, 448.821 )
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 0.709956, 0, 0, 1.73362, -2.42096, 1.40051 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -94,7 +94,7 @@ modulate = Color( 0.679688, 0.188507, 0.188507, 1 )
 
 transform/pos = Vector2( -2.42096, 1.40051 )
 transform/scale = Vector2( 0.709956, 1.73362 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

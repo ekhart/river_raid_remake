@@ -49,14 +49,13 @@ func process_enemy(delta):
 		enemy.set_pos(enemy_pos)
 	
 
-func _on_enemy_body_enter(body): 	# this function isnt called
-	# enemy.hide()
-	pass
+func _on_enemy_body_enter(body):
+	if body == get_node("TileMap"):
+		enemy.queue_free()
 
 
 func _on_enemy_area_enter(body):
 	if body == bullet and is_bullet:
-		enemy.hide()
 		enemy.queue_free()
 		
 		bullet.hide()

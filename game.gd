@@ -30,18 +30,16 @@ func _ready():
 	enemy.connect("body_enter", self, "_on_enemy_body_enter")
 	enemy.connect("area_enter", self, "_on_enemy_area_enter")
 	
-	set_process(true)
 	set_fixed_process(true)
 
 
-func _process(delta):
+func _fixed_process(delta):
+	set_pos(get_game_pos(delta))
+	
 	if is_ship():
 		ship.set_pos(get_ship_pos(delta))
 	
 	process_bullet(delta)
-	
-	
-func _fixed_process(delta):
 	process_enemy(delta)
 	
 	
@@ -111,12 +109,14 @@ func get_ship_pos(delta):
 	
 	var ship_pos = ship.get_pos()
 	
+	ship_pos.y -= SHIP_HORIZONTAL_SPEED * delta
+	
 	if (Input.is_action_pressed("ui_up")):
-		ship_pos.y += -SHIP_HORIZONTAL_SPEED * delta
+		ship_pos.y += -100 * delta
 
 	if (Input.is_action_pressed("ui_down")):
-		ship_pos.y += SHIP_HORIZONTAL_SPEED * delta
-	
+		ship_pos.y += 100 * delta
+
 	if (Input.is_action_pressed("ui_left")):
 		ship_pos.x += -SHIP_VERTICAL_SPEED * delta
 
@@ -128,3 +128,17 @@ func get_ship_pos(delta):
 
 func is_ship():
 	return has_node("ship")
+	
+	
+func get_game_pos(delta):
+	var pos = get_pos()
+	
+	pos.y += SHIP_HORIZONTAL_SPEED * delta
+	
+	if (Input.is_action_pressed("ui_up")):
+		pos.y += 100 * delta
+
+	if (Input.is_action_pressed("ui_down")):
+		pos.y += -100 * delta
+		
+	return pos

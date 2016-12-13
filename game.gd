@@ -3,7 +3,7 @@ extends Node2D
 
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
-const BULLET_SPEED = 300
+const BULLET_SPEED = 600
 const BULLET_Y_OFFSET = 50
 const ENEMY_MAX_WIGGLE = 5
 const ENEMY_VERTICAL_SPEED = 1
@@ -90,10 +90,6 @@ func process_bullet(delta):
 		bullet.show()
 		is_bullet = true
 
-	if (bullet_pos.y < 0): # change to on screen exit
-		bullet.hide()
-		is_bullet = false
-
 	if (bullet.is_visible()):
 		bullet_pos.y += -BULLET_SPEED * delta
 		bullet.set_pos(bullet_pos)
@@ -143,3 +139,8 @@ func get_game_pos(delta):
 		pos.y += -100 * delta
 
 	return pos
+
+
+func _on_bullet_exit_screen():
+	bullet.hide()
+	is_bullet = false

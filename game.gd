@@ -108,19 +108,47 @@ func process_bullet(delta):
 		bullet.set_pos(bullet_pos)
 
 
+func dec(n):
+	return n - 1
+
+
+func inc(n):
+	return n + 1
+
+
+func is_tile_fuel(tile_pos):
+	var search_tiles_poss = [
+		Vector2(dec(tile_pos.x), tile_pos.y),
+		Vector2(inc(tile_pos.x), tile_pos.y),
+		Vector2(tile_pos.x, dec(tile_pos.y)),
+		Vector2(tile_pos.x, tile_pos.y - 2),
+		Vector2(dec(tile_pos.x), dec(tile_pos.y)),
+		Vector2(dec(tile_pos.x), tile_pos.y - 2),
+		Vector2(dec(tile_pos.x), inc(tile_pos.y)),
+		Vector2(inc(tile_pos.x), dec(tile_pos.y)),
+		Vector2(inc(tile_pos.x), tile_pos.y - 2),
+		Vector2(inc(tile_pos.x), inc(tile_pos.y))
+	]
+
+	for v in search_tiles_poss:
+		var cell = tile_map.get_cellv(v)
+
+		if cell == TILE_FUEL:
+			return true
+
+	return false
+
+
+func get_tile_pos():
+	var ship_pos = ship.get_pos()
+	return tile_map.world_to_map(ship_pos)
+
+
 func _on_ship_body_enter(body):
 	if not body == tile_map:
 		return
-		
-	var ship_pos = ship.get_pos()
-	var tile_pos = tile_map.world_to_map(ship_pos)
-	
-	tile_pos.y -= 1
-	var tile_upper = tile_map.get_cellv(tile_pos)
-	tile_pos.y -= 1
-	var tile_bottom = tile_map.get_cellv(tile_pos)
 
-	if tile_upper == TILE_FUEL or tile_bottom == TILE_FUEL:
+	if is_tile_fuel(get_tile_pos()):
 		pass
 	else:
 		ship.queue_free()

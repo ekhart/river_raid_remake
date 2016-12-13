@@ -1,6 +1,7 @@
 extends Node2D
 
 
+const SCORE_ENEMY = 100
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 const BULLET_SPEED = 600
@@ -10,6 +11,9 @@ const ENEMY_VERTICAL_SPEED = 1
 
 
 var viewport_size
+var points
+var score
+
 var ship
 var bullet
 var is_bullet
@@ -19,6 +23,8 @@ var tile_map
 
 func _ready():
 	viewport_size = get_viewport().get_rect().size
+	score = get_node("hud/score")
+	points = 0
 
 	tile_map = get_node("TileMap")
 
@@ -68,6 +74,8 @@ func _on_enemy_area_enter(body):
 
 		bullet.hide()
 		is_bullet = false
+
+		set_score(SCORE_ENEMY)
 
 	if body == ship:
 		ship.queue_free()
@@ -152,3 +160,8 @@ func get_game_pos(delta):
 func _on_bullet_exit_screen():
 	bullet.hide()
 	is_bullet = false
+
+
+func set_score(point):
+	points += point
+	score.set_text("SCORE: " + str(points))

@@ -9,6 +9,8 @@ const BULLET_Y_OFFSET = 50
 const ENEMY_MAX_WIGGLE = 5
 const ENEMY_VERTICAL_SPEED = 1
 
+const TILE_FUEL = 5
+
 
 var viewport_size
 var points
@@ -107,7 +109,20 @@ func process_bullet(delta):
 
 
 func _on_ship_body_enter(body):
-	if body == tile_map:
+	if not body == tile_map:
+		return
+		
+	var ship_pos = ship.get_pos()
+	var tile_pos = tile_map.world_to_map(ship_pos)
+	
+	tile_pos.y -= 1
+	var tile_upper = tile_map.get_cellv(tile_pos)
+	tile_pos.y -= 1
+	var tile_bottom = tile_map.get_cellv(tile_pos)
+
+	if tile_upper == TILE_FUEL or tile_bottom == TILE_FUEL:
+		pass
+	else:
 		ship.queue_free()
 
 

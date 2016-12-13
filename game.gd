@@ -9,6 +9,7 @@ const ENEMY_MAX_WIGGLE = 5
 const ENEMY_VERTICAL_SPEED = 1
 
 
+var viewport_size
 var ship
 var bullet
 var is_bullet
@@ -17,6 +18,8 @@ var tile_map
 
 
 func _ready():
+	viewport_size = get_viewport().get_rect().size
+
 	tile_map = get_node("TileMap")
 
 	ship = get_node("ship")
@@ -83,7 +86,7 @@ func _on_bullet_area_enter(body):
 func process_bullet(delta):
 	var bullet_pos = bullet.get_pos()
 
-	if Input.is_action_pressed("ui_accept") and not is_bullet and has_node("ship"):
+	if Input.is_action_pressed("ui_accept") and not is_bullet and is_ship():
 		var ship_pos = ship.get_pos()
 		bullet_pos.x = ship_pos.x
 		bullet_pos.y = ship_pos.y - BULLET_Y_OFFSET
@@ -114,10 +117,15 @@ func get_ship_pos(delta):
 	if (Input.is_action_pressed("ui_down")):
 		ship_pos.y += 100 * delta
 
-	if (Input.is_action_pressed("ui_left")):
+	var ship_texture_x = ship.get_node("sprite").get_texture().size.x / 2
+	var ship_before_left_border = ship_pos.x - ship_texture_x > 0
+
+	if (Input.is_action_pressed("ui_left") and ship_before_left_border):
 		ship_pos.x += -SHIP_VERTICAL_SPEED * delta
 
-	if (Input.is_action_pressed("ui_right")):
+	var ship_before_right_border = ship_pos.x + ship_texture_x < viewport_size.x
+
+	if (Input.is_action_pressed("ui_right") and ship_before_right_border):
 		ship_pos.x += SHIP_VERTICAL_SPEED * delta
 
 	return ship_pos

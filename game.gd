@@ -47,7 +47,6 @@ func _ready():
 	ship = get_node("ship")
 	fuel = FUEL_MAX
 	is_refuel = false
-	ship.connect("body_enter", self, "_on_ship_body_enter")
 
 	bullet = get_node("bullet")
 	bullet.hide()
@@ -73,7 +72,7 @@ func process_ship(delta):
 	if is_ship():
 		ship.set_pos(get_ship_pos(delta))
 
-		if is_refuel and fuel < FUEL_MAX:
+		if is_refuel and fuel < FUEL_MAX - FUEL_REFUEL_STEP:
 			fuel += FUEL_REFUEL_STEP
 
 		fuel -= FUEL_LOSS_STEP
@@ -179,6 +178,11 @@ func _on_ship_body_enter(body):
 		is_refuel = true
 	else:
 		ship.queue_free()
+
+
+func _on_ship_body_exit(body):
+	if body == tile_map:
+		is_refuel = false
 
 
 func get_ship_pos(delta):

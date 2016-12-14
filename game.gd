@@ -11,26 +11,42 @@ const ENEMY_VERTICAL_SPEED = 1
 
 const TILE_FUEL = 5
 
+const FUEL_MAX = 100
+const FUEL_LOSS_STEP = 0.1
+const FUEL_REFUEL_STEP = 1
+
 
 var viewport_size
-var points
+
 var score
+var score_label
+var fuel
+var fuel_label
+
+
+var tile_map
 
 var ship
+var is_refuel
+
 var bullet
 var is_bullet
+
 var enemy
-var tile_map
 
 
 func _ready():
 	viewport_size = get_viewport().get_rect().size
-	score = get_node("hud/score")
-	points = 0
+	score_label = get_node("hud/score")
+	score = 0
+	fuel_label = get_node("hud/fuel")
+	fuel = 100
 
 	tile_map = get_node("TileMap")
 
 	ship = get_node("ship")
+	fuel = FUEL_MAX
+	is_refuel = false
 	ship.connect("body_enter", self, "_on_ship_body_enter")
 
 	bullet = get_node("bullet")
@@ -48,11 +64,22 @@ func _ready():
 func _fixed_process(delta):
 	set_pos(get_game_pos(delta))
 
+	process_ship(delta)
+	process_bullet(delta)
+	process_enemy(delta)
+
+
+func process_ship(delta):
 	if is_ship():
 		ship.set_pos(get_ship_pos(delta))
 
-	process_bullet(delta)
-	process_enemy(delta)
+		if is_refuel and fuel < FUEL_MAX:
+			fuel += FUEL_REFUEL_STEP
+
+		fuel -= FUEL_LOSS_STEP
+
+		fuel_label.set_text("FUEL: " + str(fuel))
+
 
 
 func process_enemy(delta):
@@ -118,16 +145,16 @@ func inc(n):
 
 func is_tile_fuel(tile_pos):
 	var search_tiles_poss = [
-		Vector2(dec(tile_pos.x), tile_pos.y),
-		Vector2(inc(tile_pos.x), tile_pos.y),
 		Vector2(tile_pos.x, dec(tile_pos.y)),
 		Vector2(tile_pos.x, tile_pos.y - 2),
+		
+		Vector2(dec(tile_pos.x), tile_pos.y),
 		Vector2(dec(tile_pos.x), dec(tile_pos.y)),
 		Vector2(dec(tile_pos.x), tile_pos.y - 2),
-		Vector2(dec(tile_pos.x), inc(tile_pos.y)),
+		
+		Vector2(inc(tile_pos.x), tile_pos.y),
 		Vector2(inc(tile_pos.x), dec(tile_pos.y)),
-		Vector2(inc(tile_pos.x), tile_pos.y - 2),
-		Vector2(inc(tile_pos.x), inc(tile_pos.y))
+		Vector2(inc(tile_pos.x), tile_pos.y - 2)
 	]
 
 	for v in search_tiles_poss:
@@ -149,7 +176,7 @@ func _on_ship_body_enter(body):
 		return
 
 	if is_tile_fuel(get_tile_pos()):
-		pass
+		is_refuel = true
 	else:
 		ship.queue_free()
 
@@ -205,6 +232,6 @@ func _on_bullet_exit_screen():
 	is_bullet = false
 
 
-func set_score(point):
-	points += point
-	score.set_text("SCORE: " + str(points))
+func set_score(points):
+	score += points
+	score_label.set_text("SCORE: " + str(score))

@@ -61,6 +61,16 @@ _update_shape_index = 0
 
 [node name="bullet" parent="." instance=ExtResource( 4 )]
 
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 614.632, -41.6822 )
+
+[node name="enemy 2" parent="enemies" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 377.415, -396.51 )
+
 [node name="hud" type="CanvasLayer" parent="."]
 
 editor/display_folded = true
@@ -98,14 +108,6 @@ text = "FUEL: 100"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="enemy" parent="." instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 614.632, -41.6822 )
-
-[node name="enemy 2" parent="." instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 377.415, -396.51 )
 
 [connection signal="body_enter" from="ship" to="." method="_on_ship_body_enter"]
 

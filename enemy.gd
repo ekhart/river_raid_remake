@@ -10,7 +10,7 @@ var game
 
 
 func _ready():
-	game = get_parent()
+	game = get_parent().get_parent()
 
 
 func _fixed_process(delta):

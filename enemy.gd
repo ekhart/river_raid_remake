@@ -46,10 +46,6 @@ func _on_enemy_area_enter(body):
 		game.destroy_ship()
 
 
-
 func destroy():
 	queue_free()
 	set_fixed_process(false)
-
-
-

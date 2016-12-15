@@ -144,6 +144,10 @@ max_lines_visible = -1
 
 [connection signal="body_exit" from="ship" to="." method="_on_ship_body_exit"]
 
+[connection signal="area_enter" from="bullet" to="." method="_on_bullet_area_enter"]
+
+[connection signal="body_enter" from="bullet" to="." method="_on_bullet_body_enter"]
+
 [connection signal="exit_screen" from="bullet/VisibilityNotifier2D" to="." method="_on_bullet_exit_screen"]
 
 

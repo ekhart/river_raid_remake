@@ -45,8 +45,6 @@ func _ready():
 
 	bullet = get_node("bullet")
 	bullet.hide()
-	bullet.connect("body_enter", self, "_on_bullet_body_enter")
-	bullet.connect("area_enter", self, "_on_bullet_area_enter")
 
 	set_fixed_process(true)
 

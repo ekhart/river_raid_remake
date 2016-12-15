@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://bullet.gd" type="Script" id=1]
+[ext_resource path="res://gfx/Bez nazwy 1.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="bullet" type="Area2D"]
+
+transform/pos = Vector2( 503.504, 448.821 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.709956, 0, 0, 1.73362, -2.42096, 1.40051 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+transform/rot = 180.0
+transform/scale = Vector2( 4.08485, 3.66528 )
+texture = ExtResource( 2 )
+modulate = Color( 0.679688, 0.188507, 0.188507, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -2.42096, 1.40051 )
+transform/scale = Vector2( 0.709956, 1.73362 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="visibility" type="VisibilityNotifier2D" parent="."]
+
+rect = Rect2( -10, -10, 20, 20 )
+
+[connection signal="area_enter" from="." to="." method="_on_bullet_area_enter"]
+
+[connection signal="body_enter" from="." to="." method="_on_bullet_body_enter"]
+
+[connection signal="exit_screen" from="visibility" to="." method="_on_visibility_exit_screen"]
+
+

@@ -1,20 +1,15 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tileset.res" type="TileSet" id=2]
 [ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=3]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gfx/Bez nazwy 1.png" type="Texture" id=5]
+[ext_resource path="res://bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 22.4196 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
 
 [node name="game" type="Node2D"]
 
@@ -64,47 +59,11 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="enemy" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 614.632, -41.6822 )
-
-[node name="enemy 2" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 377.415, -396.51 )
-
-[node name="bullet" type="Area2D" parent="."]
-
-transform/pos = Vector2( 503.504, 448.821 )
-input/pickable = true
-shapes/0/shape = SubResource( 2 )
-shapes/0/transform = Matrix32( 0.709956, 0, 0, 1.73362, -2.42096, 1.40051 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="sprite" type="Sprite" parent="bullet"]
-
-transform/rot = 180.0
-transform/scale = Vector2( 4.08485, 3.66528 )
-texture = ExtResource( 5 )
-modulate = Color( 0.679688, 0.188507, 0.188507, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
-
-transform/pos = Vector2( -2.42096, 1.40051 )
-transform/scale = Vector2( 0.709956, 1.73362 )
-shape = SubResource( 2 )
-trigger = false
-_update_shape_index = 0
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="bullet"]
-
-rect = Rect2( -10, -10, 20, 20 )
+[node name="bullet" parent="." instance=ExtResource( 4 )]
 
 [node name="hud" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -140,14 +99,16 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="enemy" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 614.632, -41.6822 )
+
+[node name="enemy 2" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 377.415, -396.51 )
+
 [connection signal="body_enter" from="ship" to="." method="_on_ship_body_enter"]
 
 [connection signal="body_exit" from="ship" to="." method="_on_ship_body_exit"]
-
-[connection signal="area_enter" from="bullet" to="." method="_on_bullet_area_enter"]
-
-[connection signal="body_enter" from="bullet" to="." method="_on_bullet_body_enter"]
-
-[connection signal="exit_screen" from="bullet/VisibilityNotifier2D" to="." method="_on_bullet_exit_screen"]
 
 

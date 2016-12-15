@@ -3,8 +3,6 @@ extends Node2D
 
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
-const BULLET_SPEED = 600
-const BULLET_Y_OFFSET = 50
 
 const TILE_FUEL = 5
 
@@ -42,9 +40,8 @@ func _ready():
 	ship = get_node("ship")
 	fuel = FUEL_MAX
 	is_refuel = false
-
+	
 	bullet = get_node("bullet")
-	bullet.hide()
 
 	set_fixed_process(true)
 
@@ -53,7 +50,6 @@ func _fixed_process(delta):
 	set_pos(get_game_pos(delta))
 
 	process_ship(delta)
-	process_bullet(delta)
 
 
 func process_ship(delta):
@@ -66,30 +62,6 @@ func process_ship(delta):
 		fuel -= FUEL_LOSS_STEP
 
 		fuel_label.set_text("FUEL: " + str(fuel))
-
-
-func _on_bullet_body_enter(body):
-	if body == tile_map:
-		hide_bullet()
-
-
-func _on_bullet_area_enter(body):
-	_on_bullet_body_enter(body)
-
-
-func process_bullet(delta):
-	var bullet_pos = bullet.get_pos()
-
-	if Input.is_action_pressed("ui_accept") and not is_bullet and is_ship():
-		var ship_pos = ship.get_pos()
-		bullet_pos.x = ship_pos.x
-		bullet_pos.y = ship_pos.y - BULLET_Y_OFFSET
-		bullet.show()
-		is_bullet = true
-
-	if (bullet.is_visible()):
-		bullet_pos.y += -BULLET_SPEED * delta
-		bullet.set_pos(bullet_pos)
 
 
 func dec(n):
@@ -189,22 +161,9 @@ func get_game_pos(delta):
 	return pos
 
 
-func _on_bullet_exit_screen():
-	hide_bullet()
-
-
 func set_score(points):
 	score += points
 	score_label.set_text("SCORE: " + str(score))
-
-
-func is_collision_with_bullet(body):
-	return body == bullet and is_bullet
-
-
-func hide_bullet():
-	bullet.hide()
-	is_bullet = false
 
 
 func destroy_ship():

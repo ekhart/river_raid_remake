@@ -36,10 +36,10 @@ func _on_enemy_body_enter(body):
 
 
 func _on_enemy_area_enter(body):
-	if game.is_collision_with_bullet(body):
+	if game.bullet.is_bullet(body):
 		destroy()
 
-		game.hide_bullet()
+		game.bullet.hide_bullet()
 		game.set_score(SCORE_ENEMY)
 
 	if body == game.ship:

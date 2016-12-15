@@ -40,6 +40,7 @@ tile_data = IntArray( -327677, 5 )
 
 [node name="ship" type="Area2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 500, 500 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
@@ -64,7 +65,11 @@ _update_shape_index = 0
 
 [node name="enemy" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 495.964, 24.058 )
+transform/pos = Vector2( 571.834, 36.3612 )
+
+[node name="enemy 2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 463.011, -202.661 )
 
 [node name="bullet" type="Area2D" parent="."]
 

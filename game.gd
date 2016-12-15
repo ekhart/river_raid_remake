@@ -1,13 +1,10 @@
 extends Node2D
 
 
-const SCORE_ENEMY = 100
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 const BULLET_SPEED = 600
 const BULLET_Y_OFFSET = 50
-const ENEMY_MAX_WIGGLE = 5
-const ENEMY_VERTICAL_SPEED = 1
 
 const TILE_FUEL = 5
 
@@ -23,7 +20,6 @@ var score_label
 var fuel
 var fuel_label
 
-
 var tile_map
 
 var ship
@@ -32,7 +28,6 @@ var is_refuel
 var bullet
 var is_bullet
 
-var enemy
 
 
 func _ready():
@@ -53,10 +48,6 @@ func _ready():
 	bullet.connect("body_enter", self, "_on_bullet_body_enter")
 	bullet.connect("area_enter", self, "_on_bullet_area_enter")
 
-	enemy = get_node("enemy")
-	enemy.connect("body_enter", self, "_on_enemy_body_enter")
-	enemy.connect("area_enter", self, "_on_enemy_area_enter")
-
 	set_fixed_process(true)
 
 
@@ -65,7 +56,6 @@ func _fixed_process(delta):
 
 	process_ship(delta)
 	process_bullet(delta)
-	process_enemy(delta)
 
 
 func process_ship(delta):
@@ -78,35 +68,6 @@ func process_ship(delta):
 		fuel -= FUEL_LOSS_STEP
 
 		fuel_label.set_text("FUEL: " + str(fuel))
-
-
-
-func process_enemy(delta):
-	if has_node("enemy"):
-		var enemy_pos = enemy.get_pos()
-		var tics = OS.get_ticks_msec()
-		var x = tics % 100000 / 200
-		enemy_pos.x += ENEMY_MAX_WIGGLE * cos(x)
-		enemy_pos.y += ENEMY_VERTICAL_SPEED
-		enemy.set_pos(enemy_pos)
-
-
-func _on_enemy_body_enter(body):
-	if body == tile_map:
-		enemy.queue_free()
-
-
-func _on_enemy_area_enter(body):
-	if body == bullet and is_bullet:
-		enemy.queue_free()
-
-		bullet.hide()
-		is_bullet = false
-
-		set_score(SCORE_ENEMY)
-
-	if body == ship:
-		ship.queue_free()
 
 
 func _on_bullet_body_enter(body):
@@ -146,11 +107,11 @@ func is_tile_fuel(tile_pos):
 	var search_tiles_poss = [
 		Vector2(tile_pos.x, dec(tile_pos.y)),
 		Vector2(tile_pos.x, tile_pos.y - 2),
-		
+
 		Vector2(dec(tile_pos.x), tile_pos.y),
 		Vector2(dec(tile_pos.x), dec(tile_pos.y)),
 		Vector2(dec(tile_pos.x), tile_pos.y - 2),
-		
+
 		Vector2(inc(tile_pos.x), tile_pos.y),
 		Vector2(inc(tile_pos.x), dec(tile_pos.y)),
 		Vector2(inc(tile_pos.x), tile_pos.y - 2)

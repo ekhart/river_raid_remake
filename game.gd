@@ -72,8 +72,7 @@ func process_ship(delta):
 
 func _on_bullet_body_enter(body):
 	if body == tile_map:
-		bullet.hide()
-		is_bullet = false
+		hide_bullet()
 
 
 func _on_bullet_area_enter(body):
@@ -193,10 +192,22 @@ func get_game_pos(delta):
 
 
 func _on_bullet_exit_screen():
-	bullet.hide()
-	is_bullet = false
+	hide_bullet()
 
 
 func set_score(points):
 	score += points
 	score_label.set_text("SCORE: " + str(score))
+
+
+func is_collision_with_bullet(body):
+	return body == bullet and is_bullet
+
+
+func hide_bullet():
+	bullet.hide()
+	is_bullet = false
+
+
+func destroy_ship():
+	ship.queue_free()

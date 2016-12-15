@@ -10,7 +10,6 @@ extents = Vector2( 10, 10 )
 
 [node name="bullet" type="Area2D"]
 
-transform/pos = Vector2( 503.504, 448.821 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 0.709956, 0, 0, 1.73362, -2.42096, 1.40051 )

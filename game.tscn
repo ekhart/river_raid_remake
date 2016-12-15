@@ -15,62 +15,6 @@ extents = Vector2( 10, 22.4196 )
 
 script/script = ExtResource( 1 )
 
-[node name="TileMap" type="TileMap" parent="."]
-
-transform/pos = Vector2( -231.613, -17.6227 )
-mode = 0
-tile_set = ExtResource( 2 )
-cell/size = Vector2( 50, 50 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = false
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray( -327677, 5 )
-
-[node name="ship" type="Area2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 500, 500 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819697, -5.45415 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="sprite" type="Sprite" parent="ship"]
-
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ship"]
-
-transform/pos = Vector2( 0.819697, -5.45415 )
-transform/scale = Vector2( 1.71108, 0.754618 )
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[node name="bullet" parent="." instance=ExtResource( 4 )]
-
-[node name="enemies" type="Node2D" parent="."]
-
-[node name="enemy" parent="enemies" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 614.632, -41.6822 )
-
-[node name="enemy 2" parent="enemies" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 377.415, -396.51 )
-
 [node name="hud" type="CanvasLayer" parent="."]
 
 editor/display_folded = true
@@ -108,6 +52,65 @@ text = "FUEL: 100"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="tile_map" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 50, 50 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -458752, 5 )
+
+[node name="ship" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 500, 500 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819697, -5.45415 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="Sprite" parent="ship"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ship"]
+
+transform/pos = Vector2( 0.819697, -5.45415 )
+transform/scale = Vector2( 1.71108, 0.754618 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bullet" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 500, 448 )
+
+[node name="enemies" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="enemy" parent="enemies" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 614.632, -41.6822 )
+
+[node name="enemy 2" parent="enemies" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 377.415, -396.51 )
 
 [connection signal="body_enter" from="ship" to="." method="_on_ship_body_enter"]
 

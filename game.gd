@@ -50,20 +50,22 @@ func _ready():
 
 func _fixed_process(delta):
 	set_pos(get_game_pos(delta))
-
 	process_ship(delta)
 
 
 func process_ship(delta):
 	if is_ship():
 		ship.set_pos(get_ship_pos(delta))
+		set_fuel()
 
-		if is_refuel and fuel < FUEL_MAX - FUEL_REFUEL_STEP:
-			fuel += FUEL_REFUEL_STEP
 
-		fuel -= FUEL_LOSS_STEP
+func set_fuel():
+	if is_refuel and fuel < FUEL_MAX - FUEL_REFUEL_STEP:
+		fuel += FUEL_REFUEL_STEP
 
-		fuel_label.set_text("FUEL: " + str(fuel))
+	fuel -= FUEL_LOSS_STEP
+
+	fuel_label.set_text("FUEL: " + str(fuel))
 
 
 func dec(n):
@@ -109,7 +111,7 @@ func _on_ship_body_enter(body):
 	if is_tile_fuel(get_tile_pos()):
 		is_refuel = true
 	else:
-		ship.queue_free()
+		destroy_ship()
 
 
 func _on_ship_body_exit(body):
@@ -153,7 +155,7 @@ func get_ship_pos(delta):
 		ship_pos.x += SHIP_VERTICAL_SPEED * delta
 		image = right_image
 		is_right = true
-	
+
 	if not is_left and not is_right:
 		image = center_image
 

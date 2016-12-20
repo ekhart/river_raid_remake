@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 
@@ -26,8 +27,6 @@ var is_left
 var is_right
 
 var bullet
-var is_bullet
-
 
 
 
@@ -43,7 +42,7 @@ func _ready():
 	ship = get_node("ship")
 	fuel = FUEL_MAX
 	is_refuel = false
-	
+
 	bullet = get_node("bullet")
 
 	set_fixed_process(true)

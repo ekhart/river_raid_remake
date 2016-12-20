@@ -7,19 +7,35 @@ const SCORE_ENEMY = 100
 
 
 var game
+var last_x
 
 
 func _ready():
 	game = get_parent().get_parent()
+	last_x = get_pos().x
 
 
 func _fixed_process(delta):
 	var pos = get_pos()
+	last_x = pos.x
+
 	var tics = OS.get_ticks_msec()
 	var x = tics % 100000 / 200
 	pos.x += ENEMY_MAX_WIGGLE * cos(x)
 	pos.y += ENEMY_VERTICAL_SPEED
 	set_pos(pos)
+
+	set_enemy_scale(pos)
+
+
+func set_enemy_scale(pos):
+	var scale_x = 1
+	if pos.x >= last_x:
+		scale_x = 1
+	else:
+		scale_x = -1
+
+	set_scale(Vector2(scale_x, 1))
 
 
 func _on_visibility_enter_screen():

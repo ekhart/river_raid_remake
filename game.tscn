@@ -2,7 +2,7 @@
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tileset.res" type="TileSet" id=2]
-[ext_resource path="res://gfx/l0_Plane1.png" type="Texture" id=3]
+[ext_resource path="res://animation/ship/l0_Plane1.png" type="Texture" id=3]
 [ext_resource path="res://bullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=5]
 
@@ -73,7 +73,6 @@ tile_data = IntArray( -458752, 5 )
 
 [node name="ship" type="Area2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 500, 500 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )

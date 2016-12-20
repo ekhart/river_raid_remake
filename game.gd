@@ -22,9 +22,12 @@ var tile_map
 
 var ship
 var is_refuel
+var is_left
+var is_right
 
 var bullet
 var is_bullet
+
 
 
 
@@ -119,6 +122,9 @@ func get_ship_pos(delta):
 	if not is_ship():
 		return
 
+	is_left = false
+	is_right = false
+
 	var ship_pos = ship.get_pos()
 
 	ship_pos.y -= SHIP_HORIZONTAL_SPEED * delta
@@ -132,13 +138,28 @@ func get_ship_pos(delta):
 	var ship_texture_x = ship.get_node("sprite").get_texture().size.x / 2
 	var ship_before_left_border = ship_pos.x - ship_texture_x > 0
 
+	var image
+	var left_image = load('res://animation/ship/l0_Plane2.png')
+	var right_image = load('res://animation/ship/l0_Plane4.png')
+	var center_image = load('res://animation/ship/l0_Plane1.png')
+
 	if (Input.is_action_pressed("ui_left") and ship_before_left_border):
 		ship_pos.x += -SHIP_VERTICAL_SPEED * delta
+		image = left_image
+		is_left = true
 
 	var ship_before_right_border = ship_pos.x + ship_texture_x < viewport_size.x
 
 	if (Input.is_action_pressed("ui_right") and ship_before_right_border):
 		ship_pos.x += SHIP_VERTICAL_SPEED * delta
+		image = right_image
+		is_right = true
+	
+	if not is_left and not is_right:
+		image = center_image
+
+	var sprite = ship.get_node("sprite")
+	sprite.set_texture(image)
 
 	return ship_pos
 

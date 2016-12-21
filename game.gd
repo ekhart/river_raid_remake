@@ -194,4 +194,9 @@ func set_score(points):
 
 
 func destroy_ship():
-	ship.queue_free()
+	if lives > 0:
+		lives -= 1
+		lives_label.set_text("LIVES: " + str(lives))
+		get_tree().reload_current_scene()
+	else:
+		ship.queue_free()

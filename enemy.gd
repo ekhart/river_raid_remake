@@ -52,6 +52,9 @@ func _process(delta):
 	if elapsed > 0.1:
 		if frame == frame_count - 1:
 			animated_sprite.set_frame(0)
+			
+			if animation == "boom":
+				queue_free()
 		else:
 			animated_sprite.set_frame(frame + 1)
 	
@@ -63,7 +66,7 @@ func _on_visibility_enter_screen():
 
 
 func _on_visibility_exit_screen():
-	destroy()
+	queue_free()
 
 
 func _on_enemy_body_enter(body):
@@ -84,5 +87,6 @@ func _on_enemy_area_enter(body):
 
 func destroy():
 	animated_sprite.set_animation("boom")
-	# queue_free()
+	disconnect("area_enter", self, "_on_enemy_area_enter")
+	disconnect("body_enter", self, "_on_enemy_body_enter")
 	set_fixed_process(false)

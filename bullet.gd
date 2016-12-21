@@ -25,6 +25,7 @@ func _fixed_process(delta):
 		pos.y = ship_pos.y - BULLET_Y_OFFSET
 		show()
 		is_bullet = true
+		get_node("sfx").play("shoot")
 
 	if (is_visible()):
 		pos.y += -BULLET_SPEED * delta

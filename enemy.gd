@@ -41,8 +41,8 @@ func set_enemy_scale(pos):
 		scale_x = -1
 
 	set_scale(Vector2(scale_x, 1))
-	
-	
+
+
 func _process(delta):
 	elapsed = elapsed + delta
 	var frame = animated_sprite.get_frame()
@@ -52,12 +52,12 @@ func _process(delta):
 	if elapsed > 0.1:
 		if frame == frame_count - 1:
 			animated_sprite.set_frame(0)
-			
+
 			if animation == "boom":
 				queue_free()
 		else:
 			animated_sprite.set_frame(frame + 1)
-	
+
 		elapsed = 0
 
 
@@ -87,6 +87,7 @@ func _on_enemy_area_enter(body):
 
 func destroy():
 	animated_sprite.set_animation("boom")
+	get_node("sfx").play("boom")
 	disconnect("area_enter", self, "_on_enemy_area_enter")
 	disconnect("body_enter", self, "_on_enemy_body_enter")
 	set_fixed_process(false)

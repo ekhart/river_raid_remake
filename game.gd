@@ -39,7 +39,7 @@ func _ready():
 	fuel_label = get_node("hud/fuel")
 	fuel = 100
 
-	tile_map = get_node("TileMap")
+	tile_map = get_node("tile_map")
 
 	ship = get_node("ship")
 	fuel = FUEL_MAX
@@ -111,7 +111,7 @@ func get_tile_pos():
 
 
 func _on_ship_body_enter(body):
-	if not body == tile_map:
+	if body != tile_map:
 		return
 
 	if is_tile_fuel(get_tile_pos()):

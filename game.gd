@@ -11,6 +11,8 @@ const FUEL_MAX = 100
 const FUEL_LOSS_STEP = 0.1
 const FUEL_REFUEL_STEP = 1
 
+const LIVES_MAX = 3
+
 
 var viewport_size
 
@@ -18,6 +20,8 @@ var score
 var score_label
 var fuel
 var fuel_label
+var lives
+var lives_label
 
 var tile_map
 
@@ -37,7 +41,9 @@ func _ready():
 	score_label = get_node("hud/score")
 	score = 0
 	fuel_label = get_node("hud/fuel")
-	fuel = 100
+	fuel = FUEL_MAX
+	lives = LIVES_MAX
+	lives_label = get_node("hud/lives")
 
 	tile_map = get_node("tile_map")
 
@@ -48,7 +54,7 @@ func _ready():
 	left_image = load('res://animation/ship/l0_Plane2.png')
 	right_image = load('res://animation/ship/l0_Plane4.png')
 	center_image = load('res://animation/ship/l0_Plane1.png')
-	
+
 	bullet = get_node("bullet")
 
 	set_fixed_process(true)
@@ -98,7 +104,6 @@ func is_tile_fuel(tile_pos):
 
 	for v in search_tiles_poss:
 		var cell = tile_map.get_cellv(v)
-
 		if cell == TILE_FUEL:
 			return true
 
@@ -155,8 +160,8 @@ func get_ship_pos(delta):
 	set_ship_sprite(image)
 
 	return ship_pos
-	
-	
+
+
 func set_ship_sprite(image):
 	if image != left_image and image != right_image:
 		image = center_image

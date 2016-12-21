@@ -8,11 +8,16 @@ const SCORE_ENEMY = 100
 
 var game
 var last_x
+var animated_sprite
+var elapsed = 0
+
 
 
 func _ready():
 	game = get_parent().get_parent()
 	last_x = get_pos().x
+	animated_sprite = get_node("animated_sprite")
+	set_process(true)
 
 
 func _fixed_process(delta):
@@ -36,6 +41,21 @@ func set_enemy_scale(pos):
 		scale_x = -1
 
 	set_scale(Vector2(scale_x, 1))
+	
+	
+func _process(delta):
+	elapsed = elapsed + delta
+	var frame = animated_sprite.get_frame()
+	var animation = animated_sprite.get_animation()
+	var frame_count = animated_sprite.get_sprite_frames().get_frame_count(animation)
+
+	if elapsed > 0.1:
+		if frame == frame_count - 1:
+			animated_sprite.set_frame(0)
+		else:
+			animated_sprite.set_frame(frame + 1)
+	
+		elapsed = 0
 
 
 func _on_visibility_enter_screen():
@@ -63,5 +83,6 @@ func _on_enemy_area_enter(body):
 
 
 func destroy():
-	queue_free()
+	animated_sprite.set_animation("boom")
+	# queue_free()
 	set_fixed_process(false)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
 [ext_resource path="res://animation/helicopter/helikopter_anim_final_100_44_0.png" type="Texture" id=2]
@@ -7,7 +7,19 @@
 [ext_resource path="res://animation/helicopter/helikopter_anim_final_100_44_3.png" type="Texture" id=5]
 [ext_resource path="res://animation/helicopter/helikopter_anim_final_100_44_4.png" type="Texture" id=6]
 [ext_resource path="res://animation/helicopter/helikopter_anim_final_100_44_5.png" type="Texture" id=7]
-[ext_resource path="res://animate_frames.gd" type="Script" id=8]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_0.png" type="Texture" id=8]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_1.png" type="Texture" id=9]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_2.png" type="Texture" id=10]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_3.png" type="Texture" id=11]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_4.png" type="Texture" id=12]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_5.png" type="Texture" id=13]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_6.png" type="Texture" id=14]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_7.png" type="Texture" id=15]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_8.png" type="Texture" id=16]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_9.png" type="Texture" id=17]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_10.png" type="Texture" id=18]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_11.png" type="Texture" id=19]
+[ext_resource path="res://animation/boom/wybuch_3_80_80_12.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,7 +28,7 @@ extents = Vector2( 10, 10 )
 
 [sub_resource type="SpriteFrames" id=2]
 
-animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ], "loop":true, "name":"boom", "speed":5.0 } ]
 
 [node name="enemy" type="Area2D"]
 
@@ -34,7 +46,6 @@ script/script = ExtResource( 1 )
 
 frames = SubResource( 2 )
 animation = "default"
-script/script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

@@ -159,10 +159,6 @@ func get_ship_pos(delta):
 		image = right_image
 
 	set_ship_sprite(image)
-	
-	var engine_sfx = ship.get_node("sfx")
-	if not engine_sfx.is_active():
-		engine_sfx.play("engine")
 
 	return ship_pos
 

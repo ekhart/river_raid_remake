@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tileset.res" type="TileSet" id=2]
 [ext_resource path="res://animation/ship/l0_Plane1.png" type="Texture" id=3]
 [ext_resource path="res://sfx/Silnik.wav" type="Sample" id=4]
-[ext_resource path="res://bullet.tscn" type="PackedScene" id=5]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sfx/Silnik.ogg" type="AudioStream" id=5]
+[ext_resource path="res://bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -132,18 +133,29 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
-[node name="bullet" parent="." instance=ExtResource( 5 )]
+[node name="engine" type="StreamPlayer" parent="ship"]
+
+stream/stream = ExtResource( 5 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="bullet" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 500, 448 )
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="enemy" parent="enemies" instance=ExtResource( 6 )]
+[node name="enemy" parent="enemies" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 614.632, -41.6822 )
 transform/scale = Vector2( -1, 1 )
 
-[node name="enemy 2" parent="enemies" instance=ExtResource( 6 )]
+[node name="enemy 2" parent="enemies" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 377.415, -396.51 )
 

@@ -31,6 +31,8 @@ var ship_texture_x
 var center_image
 var left_image
 var right_image
+var is_accelerate
+var is_downturn
 
 var bullet
 
@@ -54,6 +56,8 @@ func _ready():
 	left_image = load('res://animation/ship/l0_Plane2.png')
 	right_image = load('res://animation/ship/l0_Plane4.png')
 	center_image = load('res://animation/ship/l0_Plane1.png')
+	is_accelerate = false
+	is_downturn = false
 
 	bullet = get_node("bullet")
 
@@ -141,9 +145,11 @@ func get_ship_pos(delta):
 
 	if (Input.is_action_pressed("ui_up")):
 		ship_pos.y += -100 * delta
+		is_accelerate = true
 
 	if (Input.is_action_pressed("ui_down")):
 		ship_pos.y += 100 * delta
+		is_downturn = true
 
 	var image
 	var ship_before_left_border = ship_pos.x - ship_texture_x > 0
@@ -159,6 +165,26 @@ func get_ship_pos(delta):
 		image = right_image
 
 	set_ship_sprite(image)
+	
+	
+	var engine = ship.get_node("engine")
+	var accelerate = ship.get_node("accelerate")
+	var downturn = ship.get_node("downturn")
+	
+	if is_accelerate or is_downturn:
+		engine.stop()
+	
+	if is_accelerate and not accelerate.is_active():
+		accelerate.play("accelerate")
+
+	if is_downturn and not downturn.is_active():
+		downturn.play("downturn")
+		
+	if not accelerate.is_active() and not downturn.is_active() and not engine.is_playing():
+		engine.play()
+		
+	is_accelerate = false
+	is_downturn = false
 
 	return ship_pos
 

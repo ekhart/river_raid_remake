@@ -56,25 +56,10 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 15.0
-margin/top = 30.0
+margin/top = 29.0
 margin/right = 78.0
-margin/bottom = 44.0
+margin/bottom = 43.0
 text = "FUEL: 100"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="lives" type="Label" parent="hud"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 15.0
-margin/top = 45.0
-margin/right = 65.0
-margin/bottom = 59.0
-text = "LIVES: 3"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -95,14 +80,14 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( -655351, 0, -655350, 0, -655349, 0, -458752, 5 )
+tile_data = IntArray( -458752, 5 )
 
 [node name="ship" type="Area2D" parent="."]
 
 transform/pos = Vector2( 500, 500 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819697, -8.45415 )
+shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819697, -5.45415 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -115,7 +100,7 @@ texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ship"]
 
-transform/pos = Vector2( 0.819697, -8.45415 )
+transform/pos = Vector2( 0.819697, -5.45415 )
 transform/scale = Vector2( 1.71108, 0.754618 )
 shape = SubResource( 1 )
 trigger = false

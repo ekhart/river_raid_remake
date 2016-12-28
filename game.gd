@@ -5,7 +5,7 @@ extends Node2D
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
 
-const TILE_FUEL = 5
+const TILE_FUEL = 0
 
 const FUEL_MAX = 100
 const FUEL_LOSS_STEP = 0.1

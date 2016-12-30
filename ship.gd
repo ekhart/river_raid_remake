@@ -101,10 +101,10 @@ func _on_ship_body_enter(body):
 	if body != game.tile_map:
 		return
 
-	if game.is_tile_fuel(game.get_tile_pos()):
+	if game.is_tile_fuel():
 		game.is_refuel = true
 	else:
-		destroy_ship()
+		destroy()
 
 
 func _on_ship_body_exit(body):

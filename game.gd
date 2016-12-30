@@ -184,8 +184,7 @@ func set_ship_sprite(image):
 	if image != left_image and image != right_image:
 		image = center_image
 
-	var sprite = ship.get_node("sprite")
-	sprite.set_texture(image)
+	ship.get_node("sprite").set_texture(image)
 
 
 func set_engine_samples():

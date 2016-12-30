@@ -77,21 +77,22 @@ func process_ship(delta):
 
 
 func set_fuel():
-	if is_refuel and fuel < FUEL_MAX - FUEL_REFUEL_STEP:
+	var almost_max_fuel = FUEL_MAX - FUEL_REFUEL_STEP
+	if is_refuel and fuel < almost_max_fuel:
 		fuel += FUEL_REFUEL_STEP
 		
-		if fuel >= FUEL_MAX - FUEL_REFUEL_STEP:
-			var max_fuel = ship.get_node("max_fuel")
-			if not max_fuel.is_active():
-				max_fuel.play("max_fuel")
+		if fuel >= almost_max_fuel:
+			play_until_end("max_fuel")
 
 	fuel -= FUEL_LOSS_STEP
-
 	fuel_label.set_text("FUEL: " + str(fuel))
-	
-	var refuel = ship.get_node("refuel")
-	if is_refuel and not refuel.is_active():
-		refuel.play("refuel")
+	play_until_end("refuel", is_refuel)
+
+
+func play_until_end(sample, is_true = true):
+	var sample_node = ship.get_node(sample)
+	if is_true and not sample_node.is_active():
+		sample_node.play(sample)
 
 
 func dec(n):

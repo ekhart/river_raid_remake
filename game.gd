@@ -94,8 +94,3 @@ func set_lives():
 func is_tile_fuel():
 	var pos = tile_map.get_tile_pos(ship)
 	return tile_map.is_tile_fuel(pos)
-
-
-func _on_bridge_area_enter(area):
-	if area == bullet:
-		get_node("bridge").queue_free()

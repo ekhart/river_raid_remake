@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tiles.res" type="TileSet" id=2]
@@ -6,12 +6,7 @@
 [ext_resource path="res://ship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://bullet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gfx/most_150x50.png" type="Texture" id=7]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 75, 25 )
+[ext_resource path="res://bridge.tscn" type="PackedScene" id=7]
 
 [node name="game" type="Node2D"]
 
@@ -108,28 +103,8 @@ transform/scale = Vector2( -1, 1 )
 
 transform/pos = Vector2( 377.415, -396.51 )
 
-[node name="bridge" type="Area2D" parent="."]
+[node name="bridge" parent="." instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 500, 50 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="Sprite" type="Sprite" parent="bridge"]
-
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bridge"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
-[connection signal="area_enter" from="bridge" to="." method="_on_bridge_area_enter"]
 
 

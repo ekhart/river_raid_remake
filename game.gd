@@ -23,6 +23,7 @@ var is_refuel
 var tile_map
 var ship
 var bullet
+var last_bridge
 
 
 
@@ -46,24 +47,9 @@ func _ready():
 
 func _fixed_process(delta):
 	set_pos(get_game_pos(delta))
-	
+
 	if is_ship():
 		set_fuel()
-
-
-func set_fuel():
-	if is_refuel and fuel < ALMOST_FUEL_MAX:
-		fuel += FUEL_REFUEL_STEP
-		if fuel >= ALMOST_FUEL_MAX:
-			ship.play_until_end("max_fuel")
-
-	fuel -= FUEL_LOSS_STEP
-	fuel_label.set_text("FUEL: " + str(fuel))
-	ship.play_until_end("refuel", is_refuel)
-
-
-func is_ship():
-	return has_node("ship")
 
 
 func get_game_pos(delta):
@@ -80,17 +66,46 @@ func get_game_pos(delta):
 	return pos
 
 
+func is_ship():
+	return has_node("ship")
+
+
+func set_fuel():
+	if is_refuel and fuel < ALMOST_FUEL_MAX:
+		fuel += FUEL_REFUEL_STEP
+		if fuel >= ALMOST_FUEL_MAX:
+			ship.play_until_end("max_fuel")
+
+	fuel -= FUEL_LOSS_STEP
+	fuel_label.set_text("FUEL: " + str(fuel))
+	ship.play_until_end("refuel", is_refuel)
+
+
 func set_score(points):
 	score += points
 	score_label.set_text("SCORE: " + str(score))
-	
-	
+
+
 func set_lives():
 	lives -= 1
 	lives_label.set_text("LIVES: " + str(lives))
-	get_tree().reload_current_scene()
+	# get_tree().reload_current_scene()
 	
+	var bridge_pos = last_bridge.get_pos()
+	var ship_pos = ship.get_pos()
+	var game_pos = get_pos()
 	
+	var bridge_global_pos = last_bridge.get_global_pos()
+	var ship_global_pos = ship.get_global_pos()
+	var game_global_pos = get_global_pos()
+	
+	set_global_pos(Vector2(0, bridge_global_pos.y - 500))
+	
+	bridge_global_pos.y -= 300
+	ship.set_global_pos(bridge_global_pos)
+	last_bridge.show()
+
+
 func is_tile_fuel():
 	var pos = tile_map.get_tile_pos(ship)
 	return tile_map.is_tile_fuel(pos)

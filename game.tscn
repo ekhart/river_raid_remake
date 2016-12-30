@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tiles.res" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://ship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://bullet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://bridge.tscn" type="PackedScene" id=7]
 
 [node name="game" type="Node2D"]
 
@@ -91,6 +92,8 @@ transform/pos = Vector2( 500, 448 )
 
 [node name="enemies" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="enemy" parent="enemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 614.632, -41.6822 )
@@ -99,5 +102,17 @@ transform/scale = Vector2( -1, 1 )
 [node name="enemy 2" parent="enemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 377.415, -396.51 )
+
+[node name="bridges" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="bridge" parent="bridges" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 500, 150 )
+
+[node name="bridge 2" parent="bridges" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 500, -500 )
 
 

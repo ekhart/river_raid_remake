@@ -10,6 +10,7 @@ const TILE_FUEL = 0
 const FUEL_MAX = 100
 const FUEL_LOSS_STEP = 0.1
 const FUEL_REFUEL_STEP = 1
+const ALMOST_FUEL_MAX = FUEL_MAX - FUEL_REFUEL_STEP
 
 const LIVES_MAX = 3
 
@@ -77,11 +78,10 @@ func process_ship(delta):
 
 
 func set_fuel():
-	var almost_max_fuel = FUEL_MAX - FUEL_REFUEL_STEP
-	if is_refuel and fuel < almost_max_fuel:
+	if is_refuel and fuel < ALMOST_FUEL_MAX:
 		fuel += FUEL_REFUEL_STEP
 		
-		if fuel >= almost_max_fuel:
+		if fuel >= ALMOST_FUEL_MAX:
 			play_until_end("max_fuel")
 
 	fuel -= FUEL_LOSS_STEP

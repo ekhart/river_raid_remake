@@ -82,7 +82,7 @@ func _on_enemy_area_enter(body):
 		game.set_score(SCORE_ENEMY)
 
 	if body == game.ship:
-		game.destroy_ship()
+		game.ship.destroy()
 
 
 func destroy():

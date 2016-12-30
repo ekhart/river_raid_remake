@@ -73,6 +73,7 @@ func _fixed_process(delta):
 func process_ship(delta):
 	if is_ship():
 		ship.set_pos(get_ship_pos(delta))
+		set_engine_samples()
 		set_fuel()
 		
 
@@ -175,8 +176,19 @@ func get_ship_pos(delta):
 		image = right_image
 
 	set_ship_sprite(image)
-	
-	
+
+	return ship_pos
+
+
+func set_ship_sprite(image):
+	if image != left_image and image != right_image:
+		image = center_image
+
+	var sprite = ship.get_node("sprite")
+	sprite.set_texture(image)
+
+
+func set_engine_samples():
 	var engine = ship.get_node("engine")
 	var accelerate = ship.get_node("accelerate")
 	var downturn = ship.get_node("downturn")
@@ -195,16 +207,6 @@ func get_ship_pos(delta):
 		
 	is_accelerate = false
 	is_downturn = false
-
-	return ship_pos
-
-
-func set_ship_sprite(image):
-	if image != left_image and image != right_image:
-		image = center_image
-
-	var sprite = ship.get_node("sprite")
-	sprite.set_texture(image)
 
 
 func is_ship():

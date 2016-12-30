@@ -46,7 +46,7 @@ func _ready():
 
 func _fixed_process(delta):
 	set_pos(get_game_pos(delta))
-	
+
 	if is_ship():
 		set_fuel()
 
@@ -83,14 +83,19 @@ func get_game_pos(delta):
 func set_score(points):
 	score += points
 	score_label.set_text("SCORE: " + str(score))
-	
-	
+
+
 func set_lives():
 	lives -= 1
 	lives_label.set_text("LIVES: " + str(lives))
 	get_tree().reload_current_scene()
-	
-	
+
+
 func is_tile_fuel():
 	var pos = tile_map.get_tile_pos(ship)
 	return tile_map.is_tile_fuel(pos)
+
+
+func _on_bridge_area_enter(area):
+	if area == bullet:
+		get_node("bridge").queue_free()

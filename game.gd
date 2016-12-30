@@ -83,6 +83,10 @@ func set_fuel():
 	fuel -= FUEL_LOSS_STEP
 
 	fuel_label.set_text("FUEL: " + str(fuel))
+	
+	var refuel = ship.get_node("refuel")
+	if is_refuel and not refuel.is_active():
+		refuel.play("refuel")
 
 
 func dec(n):

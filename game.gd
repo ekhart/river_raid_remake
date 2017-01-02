@@ -5,7 +5,7 @@ extends Node2D
 const FUEL_MAX = 100
 const FUEL_LOSS_STEP = 0.1
 const FUEL_REFUEL_STEP = 1
-const ALMOST_FUEL_MAX = FUEL_MAX - FUEL_REFUEL_STEP
+const FUEL_ALMOST_MAX = FUEL_MAX - FUEL_REFUEL_STEP
 
 const LIVES_MAX = 3
 
@@ -71,9 +71,9 @@ func is_ship():
 
 
 func set_fuel():
-	if is_refuel and fuel < ALMOST_FUEL_MAX:
+	if is_refuel and fuel < FUEL_ALMOST_MAX:
 		fuel += FUEL_REFUEL_STEP
-		if fuel >= ALMOST_FUEL_MAX:
+		if fuel >= FUEL_ALMOST_MAX:
 			ship.play_until_end("max_fuel")
 
 	fuel -= FUEL_LOSS_STEP

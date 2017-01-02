@@ -11,9 +11,12 @@ func _ready():
 
 func _on_bridge_area_enter(area):
 	if area == game.bullet:
-		# queue_free()
+		disconnect("area_enter", self, "_on_bridge_area_enter")
 		hide()
 		
 		game.bullet.hide_bullet()
 		game.set_score(SCORE)
 		game.last_bridge = self
+		
+	if area == game.ship:
+		game.ship.destroy()

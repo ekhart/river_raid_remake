@@ -89,20 +89,13 @@ func set_score(points):
 func set_lives():
 	lives -= 1
 	lives_label.set_text("LIVES: " + str(lives))
-	# get_tree().reload_current_scene()
-	
-	var bridge_pos = last_bridge.get_pos()
-	var ship_pos = ship.get_pos()
-	var game_pos = get_pos()
 	
 	var bridge_global_pos = last_bridge.get_global_pos()
-	var ship_global_pos = ship.get_global_pos()
-	var game_global_pos = get_global_pos()
-	
 	set_global_pos(Vector2(0, bridge_global_pos.y - 500))
 	
 	bridge_global_pos.y -= 300
 	ship.set_global_pos(bridge_global_pos)
+	
 	last_bridge.show()
 
 

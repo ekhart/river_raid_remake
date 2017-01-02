@@ -92,8 +92,6 @@ transform/pos = Vector2( 500, 448 )
 
 [node name="enemies" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="enemy" parent="enemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 614.632, -41.6822 )
@@ -102,6 +100,10 @@ transform/scale = Vector2( -1, 1 )
 [node name="enemy 2" parent="enemies" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 377.415, -396.51 )
+
+[node name="enemy 3" parent="enemies" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 600, -700 )
 
 [node name="bridges" type="Node2D" parent="."]
 

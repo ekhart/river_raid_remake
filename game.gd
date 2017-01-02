@@ -90,15 +90,17 @@ func set_lives():
 	lives -= 1
 	lives_label.set_text("LIVES: " + str(lives))
 	
-	var bridge_global_pos = last_bridge.get_global_pos()
-	set_global_pos(Vector2(0, bridge_global_pos.y - 500))
-	
-	bridge_global_pos.y -= 300
-	ship.set_global_pos(bridge_global_pos)
-	
+	set_pos(Vector2(0, last_bridge.get_pos().y + 250))
+	ship.set_global_pos(ship.START_POS) # reset ship position
 	last_bridge.show()
 
 
 func is_tile_fuel():
 	var pos = tile_map.get_tile_pos(ship)
 	return tile_map.is_tile_fuel(pos)
+	
+	
+func on_bullet_bridge_area_enter(bridge):
+	bullet.hide_bullet()
+	set_score(bridge.SCORE)
+	last_bridge = bridge

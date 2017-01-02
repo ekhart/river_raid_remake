@@ -2,6 +2,7 @@ extends Area2D
 
 const SHIP_HORIZONTAL_SPEED = 150
 const SHIP_VERTICAL_SPEED = 150
+const START_POS = Vector2(500, 500)
 
 var game
 
@@ -48,13 +49,13 @@ func get_ship_pos(delta):
 	var image
 	var ship_before_left_border = pos.x - ship_texture_x > 0
 
-	if (Input.is_action_pressed("ui_left") and ship_before_left_border):
+	if Input.is_action_pressed("ui_left") and ship_before_left_border:
 		pos.x += -SHIP_VERTICAL_SPEED * delta
 		image = left_image
 
 	var ship_before_right_border = pos.x + ship_texture_x < game.viewport_size.x
 
-	if (Input.is_action_pressed("ui_right") and ship_before_right_border):
+	if Input.is_action_pressed("ui_right") and ship_before_right_border:
 		pos.x += SHIP_VERTICAL_SPEED * delta
 		image = right_image
 

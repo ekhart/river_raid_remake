@@ -11,12 +11,13 @@ func _ready():
 
 func _on_bridge_area_enter(area):
 	if area == game.bullet:
-		disconnect("area_enter", self, "_on_bridge_area_enter")
-		hide()
-		
-		game.bullet.hide_bullet()
-		game.set_score(SCORE)
-		game.last_bridge = self
-		
+		destroy()
+		game.on_bullet_bridge_area_enter(self)
+
 	if area == game.ship:
 		game.ship.destroy()
+
+
+func destroy():
+	disconnect("area_enter", self, "_on_bridge_area_enter")
+	hide()

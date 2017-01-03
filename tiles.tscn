@@ -723,10 +723,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=112]
+[sub_resource type="ConvexPolygonShape2D" id=155]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, 9, 12, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=113]
 
@@ -736,10 +736,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=114]
+[sub_resource type="ConvexPolygonShape2D" id=156]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -13, 25, 25, 8, 25, 25 )
 
 [sub_resource type="ImageTexture" id=115]
 
@@ -749,10 +749,15 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=116]
+[sub_resource type="ConvexPolygonShape2D" id=157]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 25, 5, 25, 25, -25, 25, -6, 2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=158]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -6, 2, -25, 25, -25, -25, -8, -25 )
 
 [sub_resource type="ImageTexture" id=117]
 
@@ -762,10 +767,15 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=118]
+[sub_resource type="ConvexPolygonShape2D" id=159]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 7, -25, 25, -25, 25, 25, 5, 2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=160]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 5, 2, 25, 25, -25, 25, -25, 8 )
 
 [sub_resource type="ImageTexture" id=119]
 
@@ -775,10 +785,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=120]
+[sub_resource type="ConvexPolygonShape2D" id=161]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, -9, 25, 8, 25, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=121]
 
@@ -788,10 +798,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=122]
+[sub_resource type="ConvexPolygonShape2D" id=162]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, 9, 25, -9, 25, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=123]
 
@@ -801,10 +811,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=124]
+[sub_resource type="ConvexPolygonShape2D" id=163]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 6, -25, 25, -6, 25, 25, -25, 25, -25, -25 )
 
 [sub_resource type="ImageTexture" id=125]
 
@@ -814,10 +824,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=126]
+[sub_resource type="ConvexPolygonShape2D" id=164]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -5, -25, 25, -25, 25, 25, -25, 25, -25, -6 )
 
 [sub_resource type="ImageTexture" id=127]
 
@@ -827,10 +837,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=128]
+[sub_resource type="ConvexPolygonShape2D" id=165]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 21, 25, -25, 25, -25, -7 )
 
 [sub_resource type="ImageTexture" id=129]
 
@@ -840,10 +850,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=130]
+[sub_resource type="ConvexPolygonShape2D" id=166]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 25, 25, -21, 25, 25, -7 )
 
 [sub_resource type="ImageTexture" id=131]
 
@@ -853,11 +863,6 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=132]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-
 [sub_resource type="ImageTexture" id=133]
 
 flags = 0
@@ -865,11 +870,6 @@ image = Image( 50, 50, 0, RGBA, 91, 110, 225, 255, 91, 110, 225, 255, 91, 110, 2
 size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
-
-[sub_resource type="ConvexPolygonShape2D" id=134]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=135]
 
@@ -879,10 +879,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=136]
+[sub_resource type="ConvexPolygonShape2D" id=167]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, -22, 25, 10, 25, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=137]
 
@@ -892,10 +892,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=138]
+[sub_resource type="ConvexPolygonShape2D" id=168]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, 10, 25, -21, 25, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=139]
 
@@ -905,10 +905,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=140]
+[sub_resource type="ConvexPolygonShape2D" id=169]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 2, 25, -25, 25, -25, 10 )
 
 [sub_resource type="ImageTexture" id=141]
 
@@ -918,10 +918,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=142]
+[sub_resource type="ConvexPolygonShape2D" id=170]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 25, 25, -5, 25, 25, 8 )
 
 [sub_resource type="ImageTexture" id=143]
 
@@ -931,10 +931,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=144]
+[sub_resource type="ConvexPolygonShape2D" id=171]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 6, -25, 25, -8, 25, 25, -25, 25, -25, -25 )
 
 [sub_resource type="ImageTexture" id=145]
 
@@ -944,10 +944,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=146]
+[sub_resource type="ConvexPolygonShape2D" id=172]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -8, -25, 25, -25, 25, 25, -25, 25, -25, -10 )
 
 [sub_resource type="ImageTexture" id=147]
 
@@ -957,10 +957,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=148]
+[sub_resource type="ConvexPolygonShape2D" id=173]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, 8, -8, 7, -7, 25, -25, 25 )
 
 [sub_resource type="ImageTexture" id=149]
 
@@ -970,10 +970,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=150]
+[sub_resource type="ConvexPolygonShape2D" id=174]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( 9, 8, 25, 10, 25, 25, 8, 25 )
 
 [sub_resource type="ImageTexture" id=151]
 
@@ -983,10 +983,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=152]
+[sub_resource type="ConvexPolygonShape2D" id=175]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -11, -25, 25, -25, 25, 25, 6, 25 )
 
 [sub_resource type="ImageTexture" id=153]
 
@@ -996,10 +996,10 @@ size = Vector2( 50, 50 )
 storage = 0
 lossy_quality = 0.7
 
-[sub_resource type="ConvexPolygonShape2D" id=154]
+[sub_resource type="ConvexPolygonShape2D" id=176]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+points = Vector2Array( -25, -25, 12, -25, -6, 25, -25, 25 )
 
 [node name="tiles" type="Node2D"]
 
@@ -2348,12 +2348,13 @@ trigger = false
 [node name="10_more_50x50-flip_hor" type="Sprite" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 texture = SubResource( 111 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="10_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 112 )
+shapes/0/shape = SubResource( 155 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2366,8 +2367,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="10_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, 9, 12, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="10_more_50x50" type="Sprite" parent="."]
@@ -2379,7 +2380,7 @@ texture = SubResource( 113 )
 [node name="StaticBody2D" type="StaticBody2D" parent="10_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 114 )
+shapes/0/shape = SubResource( 156 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2392,8 +2393,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="10_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -13, 25, 25, 8, 25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="11_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2405,9 +2406,12 @@ texture = SubResource( 115 )
 [node name="StaticBody2D" type="StaticBody2D" parent="11_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 116 )
+shapes/0/shape = SubResource( 157 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
+shapes/1/shape = SubResource( 158 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -2418,8 +2422,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="11_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -6, 2, 25, 5, 25, 25, -25, 25, -25, -25, -8, -25 )
+shape_range = Vector2( 0, 1 )
 trigger = false
 
 [node name="11_more_50x50" type="Sprite" parent="."]
@@ -2431,9 +2435,12 @@ texture = SubResource( 117 )
 [node name="StaticBody2D" type="StaticBody2D" parent="11_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 118 )
+shapes/0/shape = SubResource( 159 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
+shapes/1/shape = SubResource( 160 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
 collision/layers = 1
 collision/mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
@@ -2444,8 +2451,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="11_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( 7, -25, 25, -25, 25, 25, -25, 25, -25, 8, 5, 2 )
+shape_range = Vector2( 0, 1 )
 trigger = false
 
 [node name="1_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2457,7 +2464,7 @@ texture = SubResource( 119 )
 [node name="StaticBody2D" type="StaticBody2D" parent="1_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 120 )
+shapes/0/shape = SubResource( 161 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2470,8 +2477,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, -9, 25, 8, 25, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="1_more_50x50" type="Sprite" parent="."]
@@ -2483,7 +2490,7 @@ texture = SubResource( 121 )
 [node name="StaticBody2D" type="StaticBody2D" parent="1_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 122 )
+shapes/0/shape = SubResource( 162 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2496,8 +2503,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="1_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, 9, 25, -9, 25, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="2_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2509,7 +2516,7 @@ texture = SubResource( 123 )
 [node name="StaticBody2D" type="StaticBody2D" parent="2_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 124 )
+shapes/0/shape = SubResource( 163 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2522,8 +2529,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( 6, -25, 25, -6, 25, 25, -25, 25, -25, -25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="2_more_50x50" type="Sprite" parent="."]
@@ -2535,7 +2542,7 @@ texture = SubResource( 125 )
 [node name="StaticBody2D" type="StaticBody2D" parent="2_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 126 )
+shapes/0/shape = SubResource( 164 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2548,8 +2555,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="2_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -5, -25, 25, -25, 25, 25, -25, 25, -25, -6 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="3_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2561,7 +2568,7 @@ texture = SubResource( 127 )
 [node name="StaticBody2D" type="StaticBody2D" parent="3_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 128 )
+shapes/0/shape = SubResource( 165 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2574,8 +2581,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="3_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, -7, -25, 25, 21, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="3_more_50x50" type="Sprite" parent="."]
@@ -2587,7 +2594,7 @@ texture = SubResource( 129 )
 [node name="StaticBody2D" type="StaticBody2D" parent="3_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 130 )
+shapes/0/shape = SubResource( 166 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2600,61 +2607,19 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="3_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( 25, -7, -21, 25, 25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="4_more_50x50-flip_hor" type="Sprite" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 texture = SubResource( 131 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="4_more_50x50-flip_hor"]
-
-input/pickable = false
-shapes/0/shape = SubResource( 132 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="4_more_50x50-flip_hor/StaticBody2D"]
-
-build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
-trigger = false
-
 [node name="4_more_50x50" type="Sprite" parent="."]
 
-editor/display_folded = true
 visibility/visible = false
 texture = SubResource( 133 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="4_more_50x50"]
-
-input/pickable = false
-shapes/0/shape = SubResource( 134 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="4_more_50x50/StaticBody2D"]
-
-build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
-trigger = false
 
 [node name="5_more_50x50-flip_hor" type="Sprite" parent="."]
 
@@ -2665,7 +2630,7 @@ texture = SubResource( 135 )
 [node name="StaticBody2D" type="StaticBody2D" parent="5_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 136 )
+shapes/0/shape = SubResource( 167 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2678,8 +2643,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="5_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, -22, 25, 10, 25, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="5_more_50x50" type="Sprite" parent="."]
@@ -2691,7 +2656,7 @@ texture = SubResource( 137 )
 [node name="StaticBody2D" type="StaticBody2D" parent="5_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 138 )
+shapes/0/shape = SubResource( 168 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2704,8 +2669,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="5_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, 10, 25, -21, 25, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="6_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2717,7 +2682,7 @@ texture = SubResource( 139 )
 [node name="StaticBody2D" type="StaticBody2D" parent="6_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 140 )
+shapes/0/shape = SubResource( 169 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2730,8 +2695,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="6_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, 10, -25, 25, 2, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="6_more_50x50" type="Sprite" parent="."]
@@ -2743,7 +2708,7 @@ texture = SubResource( 141 )
 [node name="StaticBody2D" type="StaticBody2D" parent="6_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 142 )
+shapes/0/shape = SubResource( 170 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2756,8 +2721,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="6_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( 25, 8, -5, 25, 25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="7_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2769,7 +2734,7 @@ texture = SubResource( 143 )
 [node name="StaticBody2D" type="StaticBody2D" parent="7_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 144 )
+shapes/0/shape = SubResource( 171 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2782,8 +2747,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="7_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( 6, -25, 25, -8, 25, 25, -25, 25, -25, -25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="7_more_50x50" type="Sprite" parent="."]
@@ -2795,7 +2760,7 @@ texture = SubResource( 145 )
 [node name="StaticBody2D" type="StaticBody2D" parent="7_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 146 )
+shapes/0/shape = SubResource( 172 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2808,8 +2773,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="7_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -8, -25, 25, -25, 25, 25, -25, 25, -25, -10 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="8_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2821,7 +2786,7 @@ texture = SubResource( 147 )
 [node name="StaticBody2D" type="StaticBody2D" parent="8_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 148 )
+shapes/0/shape = SubResource( 173 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2834,8 +2799,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="8_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, 8, -8, 7, -7, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="8_more_50x50" type="Sprite" parent="."]
@@ -2847,7 +2812,7 @@ texture = SubResource( 149 )
 [node name="StaticBody2D" type="StaticBody2D" parent="8_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 150 )
+shapes/0/shape = SubResource( 174 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2860,8 +2825,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="8_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( 9, 8, 25, 10, 25, 25, 8, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="9_more_50x50-flip_hor" type="Sprite" parent="."]
@@ -2873,7 +2838,7 @@ texture = SubResource( 151 )
 [node name="StaticBody2D" type="StaticBody2D" parent="9_more_50x50-flip_hor"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 152 )
+shapes/0/shape = SubResource( 175 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2886,8 +2851,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="9_more_50x50-flip_hor/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -11, -25, 25, -25, 25, 25, 6, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 [node name="9_more_50x50" type="Sprite" parent="."]
@@ -2899,7 +2864,7 @@ texture = SubResource( 153 )
 [node name="StaticBody2D" type="StaticBody2D" parent="9_more_50x50"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 154 )
+shapes/0/shape = SubResource( 176 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -2912,8 +2877,8 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="9_more_50x50/StaticBody2D"]
 
 build_mode = 0
-polygon = Vector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -25, -25, 12, -25, -6, 25, -25, 25 )
+shape_range = Vector2( 0, 0 )
 trigger = false
 
 

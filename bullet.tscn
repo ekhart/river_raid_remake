@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://bullet.gd" type="Script" id=1]
 [ext_resource path="res://gfx/shot/strzal_2.png" type="Texture" id=2]
@@ -8,6 +8,18 @@
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "animate"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ 0, 1 ] }
 
 [sub_resource type="SampleLibrary" id=2]
 
@@ -30,7 +42,17 @@ script/script = ExtResource( 1 )
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 2
-frame = 1
+
+[node name="animate" type="AnimationPlayer" parent="sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/animate = SubResource( 3 )
+playback/active = false
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

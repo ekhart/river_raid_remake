@@ -42,6 +42,7 @@ script/script = ExtResource( 1 )
 transform/scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="animate" type="AnimationPlayer" parent="sprite"]
 

@@ -20,4 +20,5 @@ func _on_bridge_area_enter(area):
 
 func destroy():
 	disconnect("area_enter", self, "_on_bridge_area_enter")
-	hide()
+	get_node("boom").play_explosion()
+	get_node("Sprite").hide()

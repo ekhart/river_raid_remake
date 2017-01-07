@@ -14,6 +14,7 @@ script/script = ExtResource( 1 )
 
 [node name="hud" type="CanvasLayer" parent="."]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -81,7 +82,6 @@ max_lines_visible = -1
 
 [node name="tile_map" type="TileMap" parent="."]
 
-transform/pos = Vector2( -101.939, 0 )
 mode = 0
 tile_set = ExtResource( 2 )
 cell/size = Vector2( 50, 50 )

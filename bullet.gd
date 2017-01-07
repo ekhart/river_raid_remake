@@ -7,7 +7,6 @@ const BULLET_Y_OFFSET = 50
 
 var is_bullet
 var animate
-
 var game
 
 
@@ -28,7 +27,9 @@ func _fixed_process(delta):
 		show()
 		is_bullet = true
 		get_node("sfx").play("shoot")
+		animate.set_active(true)
 		animate.play("animate")
+		
 
 	if (is_visible()):
 		pos.y += -BULLET_SPEED * delta
@@ -51,6 +52,7 @@ func _on_bullet_body_enter(body):
 func hide_bullet():
 	hide()
 	is_bullet = false
+	animate.set_active(false)
 	animate.stop_all()
 
 

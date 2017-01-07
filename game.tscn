@@ -85,9 +85,11 @@ script/script = ExtResource( 3 )
 
 [node name="bridges" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="bridge" parent="bridges" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 500, 600 )
+
+[node name="bridge 1" parent="bridges" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 500, 150 )
 

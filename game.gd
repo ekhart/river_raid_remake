@@ -43,6 +43,7 @@ func _ready():
 	tile_map = get_node("tile_map")
 	ship = get_node("ship")
 	bullet = get_node("bullet")
+	last_bridge = get_node("bridges/bridge")
 
 	set_fixed_process(true)
 

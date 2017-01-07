@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tiles.res" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://ship.tscn" type="PackedScene" id=5]
 [ext_resource path="res://bullet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://house.tscn" type="PackedScene" id=8]
 
 [node name="game" type="Node2D"]
 
@@ -137,5 +138,9 @@ transform/pos = Vector2( 377.415, -396.51 )
 [node name="enemy 3" parent="enemies" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 600, -700 )
+
+[node name="house" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 136.58, 144.874 )
 
 

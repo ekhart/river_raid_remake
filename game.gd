@@ -32,7 +32,7 @@ var last_bridge
 func _ready():
 	viewport_size = get_viewport().get_rect().size
 
-	score = 9900
+	score = 0
 	score_label = get_node("hud/score")
 	fuel = FUEL_MAX
 	fuel_label = get_node("hud/fuel")

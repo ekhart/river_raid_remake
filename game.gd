@@ -20,6 +20,8 @@ var fuel
 var fuel_label
 var lives
 var lives_label
+var bridge
+var bridge_label
 var is_refuel
 
 var tile_map
@@ -39,6 +41,8 @@ func _ready():
 	lives = LIVES_MAX
 	lives_label = get_node("hud/lives")
 	is_refuel = false
+	bridge = 1
+	bridge_label = get_node("hud/bridge")
 
 	tile_map = get_node("tile_map")
 	ship = get_node("ship")
@@ -107,6 +111,11 @@ func set_lives(number = -LIVES_STEP):
 		last_bridge.show()
 
 
+func set_bridge():
+	bridge += 1
+	bridge_label.set_text("BRIDGE: " + str(bridge))
+
+
 func is_tile_fuel():
 	var pos = tile_map.get_tile_pos(ship)
 	return tile_map.is_tile_fuel(pos)
@@ -115,4 +124,5 @@ func is_tile_fuel():
 func on_bullet_bridge_area_enter(bridge):
 	bullet.hide_bullet()
 	set_score(bridge.SCORE)
+	set_bridge()
 	last_bridge = bridge

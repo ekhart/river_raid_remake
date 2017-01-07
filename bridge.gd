@@ -19,5 +19,7 @@ func _on_bridge_area_enter(area):
 
 
 func destroy():
-	disconnect("area_enter", self, "_on_bridge_area_enter")
 	hide()
+	get_node("bom_sfx").play("boom")
+	disconnect("area_enter", self, "_on_bridge_area_enter")
+	

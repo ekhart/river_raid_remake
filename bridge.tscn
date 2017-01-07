@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://bridge.gd" type="Script" id=1]
 [ext_resource path="res://gfx/most_150x50.png" type="Texture" id=2]
-[ext_resource path="res://animation/effects/wybuch_4_90_90.png" type="Texture" id=3]
-[ext_resource path="res://animate_sprite.gd" type="Script" id=4]
+[ext_resource path="res://animation/effects/pjimage (1).jpg" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -52,8 +51,9 @@ texture = ExtResource( 2 )
 [node name="boom" type="Sprite" parent="."]
 
 texture = ExtResource( 3 )
-hframes = 64
-script/script = ExtResource( 4 )
+vframes = 8
+hframes = 8
+frame = 63
 
 [node name="anim" type="AnimationPlayer" parent="boom"]
 

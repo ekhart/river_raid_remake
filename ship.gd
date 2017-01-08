@@ -99,12 +99,7 @@ func play_until_end(sample, is_true = true):
 
 
 func _on_ship_body_enter(body):
-	if body != game.tile_map:
-		return
-
-	if game.is_tile_fuel():
-		game.is_refuel = true
-	else:
+	if body == game.tile_map:
 		destroy()
 
 

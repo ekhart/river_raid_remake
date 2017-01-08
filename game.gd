@@ -116,11 +116,6 @@ func set_bridge():
 	bridge_label.set_text("BRIDGE: " + str(bridge))
 
 
-func is_tile_fuel():
-	var pos = tile_map.get_tile_pos(ship)
-	return tile_map.is_tile_fuel(pos)
-	
-	
 func on_bullet_bridge_area_enter(bridge):
 	bullet.hide_bullet()
 	set_score(bridge.SCORE)

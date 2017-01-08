@@ -1,13 +1,26 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://game.gd" type="Script" id=1]
 [ext_resource path="res://tiles.res" type="TileSet" id=2]
 [ext_resource path="res://tile_map.gd" type="Script" id=3]
 [ext_resource path="res://house.tscn" type="PackedScene" id=4]
 [ext_resource path="res://bridge.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ship.tscn" type="PackedScene" id=6]
-[ext_resource path="res://bullet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gfx/fuel_anim_final_56_100.png" type="Texture" id=6]
+[ext_resource path="res://ship.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bullet.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "animation"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] }
 
 [node name="game" type="Node2D"]
 
@@ -102,6 +115,8 @@ script/script = ExtResource( 3 )
 
 [node name="houses" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="house" parent="houses" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 136.58, 144.874 )
@@ -127,9 +142,35 @@ transform/pos = Vector2( 500, 150 )
 
 transform/pos = Vector2( 500, -500 )
 
-[node name="ship" parent="." instance=ExtResource( 6 )]
+[node name="fuel" type="Area2D" parent="."]
 
-[node name="bullet" parent="." instance=ExtResource( 7 )]
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="sprite" type="Sprite" parent="fuel"]
+
+transform/pos = Vector2( 280.925, 112.78 )
+texture = ExtResource( 6 )
+hframes = 11
+frame = 10
+
+[node name="animation" type="AnimationPlayer" parent="fuel/sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/animation = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="ship" parent="." instance=ExtResource( 7 )]
+
+[node name="bullet" parent="." instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 500, 448 )
 
@@ -137,16 +178,16 @@ transform/pos = Vector2( 500, 448 )
 
 editor/display_folded = true
 
-[node name="enemy" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 614.632, -41.6822 )
 transform/scale = Vector2( -1, 1 )
 
-[node name="enemy 2" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy 2" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 377.415, -396.51 )
 
-[node name="enemy 3" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy 3" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 600, -700 )
 

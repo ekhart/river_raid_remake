@@ -1,40 +1,58 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://ship.gd" type="Script" id=1]
 [ext_resource path="res://animation/ship/l0_Plane1.png" type="Texture" id=2]
-[ext_resource path="res://sfx/Silnik.ogg" type="AudioStream" id=3]
-[ext_resource path="res://sfx/Przyspieszenie.wav" type="Sample" id=4]
-[ext_resource path="res://sfx/Spowolnienie.wav" type="Sample" id=5]
-[ext_resource path="res://sfx/Tankowanie paliwa.wav" type="Sample" id=6]
-[ext_resource path="res://sfx/Max poziom baku.wav" type="Sample" id=7]
+[ext_resource path="res://animation/effects/wybuch_2_80_80.png" type="Texture" id=3]
+[ext_resource path="res://sfx/Silnik.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sfx/Przyspieszenie.wav" type="Sample" id=5]
+[ext_resource path="res://sfx/Spowolnienie.wav" type="Sample" id=6]
+[ext_resource path="res://sfx/Tankowanie paliwa.wav" type="Sample" id=7]
+[ext_resource path="res://sfx/Max poziom baku.wav" type="Sample" id=8]
+[ext_resource path="res://sfx/Wybuch.wav" type="Sample" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 22.4196 )
 
+[sub_resource type="Animation" id=6]
+
+resource/name = "animation"
+length = 1.5
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":1, "values":[ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ] }
+
 [sub_resource type="SampleLibrary" id=2]
 
-samples/accelerate = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/accelerate = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 
 [sub_resource type="SampleLibrary" id=3]
 
-samples/downturn = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/downturn = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
 
 [sub_resource type="SampleLibrary" id=4]
 
-samples/refuel = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/refuel = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
 
 [sub_resource type="SampleLibrary" id=5]
 
-samples/max_fuel = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+samples/max_fuel = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+
+[sub_resource type="SampleLibrary" id=7]
+
+samples/boom = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
 
 [node name="ship" type="Area2D"]
 
 transform/pos = Vector2( 500, 500 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819697, -5.45415 )
+shapes/0/transform = Matrix32( 1.71108, 0, 0, 0.754618, 0.819702, -5.45416 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -42,21 +60,45 @@ linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 1 )
 
-[node name="sprite" type="Sprite" parent="."]
-
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-transform/pos = Vector2( 0.819697, -5.45415 )
+transform/pos = Vector2( 0.819702, -5.45416 )
 transform/scale = Vector2( 1.71108, 0.754618 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = false
+autostart = false
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="boom" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+hframes = 16
+frame = 15
+
+[node name="animation" type="AnimationPlayer" parent="boom"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/animation = SubResource( 6 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
 [node name="engine" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 3 )
+stream/stream = ExtResource( 4 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -133,8 +175,27 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
+[node name="boom_sfx" type="SamplePlayer" parent="."]
+
+config/polyphony = 1
+config/samples = SubResource( 7 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
 [connection signal="body_enter" from="." to="." method="_on_ship_body_enter"]
 
 [connection signal="body_exit" from="." to="." method="_on_ship_body_exit"]
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 
 

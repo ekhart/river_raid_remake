@@ -15,6 +15,7 @@ var is_accelerate
 var is_downturn
 var timer 
 var boom_animation
+var boom_sfx
 
 
 func _ready():
@@ -22,6 +23,7 @@ func _ready():
 	timer = get_node("timer")
 	sprite = get_node("sprite")
 	boom_animation = get_node("boom/animation")
+	boom_sfx = get_node("boom_sfx")
 	ship_texture_x = sprite.get_texture().size.x / 2
 	left_image = load('res://animation/ship/l0_Plane2.png')
 	right_image = load('res://animation/ship/l0_Plane4.png')
@@ -115,12 +117,14 @@ func destroy():
 	if game.lives > 0:
 		sprite.hide()
 		boom_animation.play("animation")
+		boom_sfx.play("boom")
 		timer.start()
 	else:
 		queue_free()
 
 
 func _on_timer_timeout():
+	boom_sfx.stop_all()
 	boom_animation.stop_all()
 	sprite.show()
 	game.set_lives()

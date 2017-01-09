@@ -19,7 +19,8 @@ func _on_bridge_area_enter(area):
 
 
 func destroy():
-	hide()
-	get_node("bom_sfx").play("boom")
+	get_node("sprite").hide()
+	get_node("boom_sfx").play("boom")
+	get_node("boom/animation").play("boom")
 	disconnect("area_enter", self, "_on_bridge_area_enter")
 	

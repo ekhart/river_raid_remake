@@ -68,15 +68,13 @@ transform/pos = Vector2( 500, -500 )
 
 [node name="fuels" type="Node2D" parent="."]
 
-editor/display_folded = true
-
-[node name="fuel" parent="fuels" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 700, 200 )
-
 [node name="fuel 2" parent="fuels" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 300, -100 )
+
+[node name="fuel" parent="fuels" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 691.1, 260.796 )
 
 [node name="enemies" type="Node2D" parent="."]
 

@@ -59,7 +59,7 @@ _update_shape_index = 0
 
 texture = ExtResource( 2 )
 hframes = 11
-frame = 10
+frame = 2
 
 [node name="animation" type="AnimationPlayer" parent="sprite"]
 
@@ -106,8 +106,14 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
+[node name="visibility" type="VisibilityNotifier2D" parent="."]
+
+rect = Rect2( -10, -10, 20, 20 )
+
 [connection signal="area_enter" from="." to="." method="_on_fuel_area_enter"]
 
 [connection signal="area_exit" from="." to="." method="_on_fuel_area_exit"]
+
+[connection signal="exit_screen" from="visibility" to="." method="_on_visibility_exit_screen"]
 
 

@@ -9,6 +9,7 @@ var game
 
 func _ready():
 	game = get_parent().get_parent()
+	get_node("sprite/animation").play("animation")
 
 
 func _on_fuel_area_enter(area):
@@ -32,3 +33,6 @@ func destroy():
 	get_node("boom/animation").play("animation")
 	disconnect("area_enter", self, "_on_fuel_area_enter")
 	disconnect("area_exit", self, "_on_fuel_area_exit")
+
+func _on_visibility_exit_screen():
+	queue_free()

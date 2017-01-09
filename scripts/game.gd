@@ -113,7 +113,7 @@ func set_lives(number = -LIVES_STEP):
 
 func set_bridge():
 	bridge += 1
-	bridge_label.set_text("BRIDGE: " + str(bridge))
+	bridge_label.set_text(str(bridge))
 
 
 func on_bullet_bridge_area_enter(bridge):

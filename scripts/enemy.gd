@@ -3,7 +3,7 @@ extends Area2D
 
 const ENEMY_MAX_WIGGLE = 5
 const ENEMY_VERTICAL_SPEED = 1
-const SCORE_ENEMY = 100
+const SCORE_ENEMY = 50
 
 
 var game

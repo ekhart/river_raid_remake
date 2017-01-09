@@ -7,7 +7,7 @@
 [ext_resource path="res://fuel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=6]
 [ext_resource path="res://bullet.tscn" type="PackedScene" id=7]
-[ext_resource path="res://enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://enemy_ship.tscn" type="PackedScene" id=8]
 
 [node name="game" type="Node2D"]
 
@@ -148,19 +148,8 @@ transform/pos = Vector2( 500, 448 )
 
 [node name="enemies" type="Node2D" parent="."]
 
-editor/display_folded = true
+[node name="enemy_ship" parent="enemies" instance=ExtResource( 8 )]
 
-[node name="enemy" parent="enemies" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 614.632, -41.6822 )
-transform/scale = Vector2( -1, 1 )
-
-[node name="enemy 2" parent="enemies" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 377.415, -396.51 )
-
-[node name="enemy 3" parent="enemies" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 600, -700 )
+transform/pos = Vector2( 350, 200 )
 
 

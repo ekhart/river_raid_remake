@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=2]
 [ext_resource path="res://tiles.res" type="TileSet" id=3]
 [ext_resource path="res://scenes/house.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/bridge.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/fuel.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/enemy_tank.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/street.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/fuel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemy_tank.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=11]
 
 [node name="game" type="Node2D"]
 
@@ -75,19 +76,9 @@ frame = 1
 
 [node name="bridges" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="bridge" parent="bridges" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 504.874, 565.492 )
-
-[node name="bridge 11 " parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 825.476, -1086.34 )
-
-[node name="bridge6" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 823.756, -2532.68 )
 
 [node name="bridge8" parent="bridges" instance=ExtResource( 5 )]
 
@@ -129,128 +120,134 @@ transform/pos = Vector2( 225.954, -4127.78 )
 
 transform/pos = Vector2( 75.9543, -4127.78 )
 
-[node name="bridge11" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 225.398, -2532.68 )
-
-[node name="bridge12" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 75.5832, -2532.68 )
-
-[node name="bridge7" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 973.835, -2532.68 )
-
 [node name="bridge1" parent="bridges" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 526.932, -1085.62 )
-
-[node name="bridge2" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 377.291, -1085.62 )
-
-[node name="bridge3" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 230.105, -1085.62 )
-
-[node name="bridge4" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 80.464, -1085.62 )
-
-[node name="bridge5" parent="bridges" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 76.7808, -1085.62 )
 
 [node name="bridge 1" parent="bridges" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 675.229, -1086.06 )
 
-[node name="bridge 2" parent="bridges" instance=ExtResource( 5 )]
+[node name="street" parent="bridges" instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 973.951, -1086.54 )
+transform/pos = Vector2( 225, -2533 )
+
+[node name="street 2" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 76.2712, -2532.68 )
+
+[node name="street 3" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 824, -2532.68 )
+
+[node name="street 4" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 975, -2532.68 )
+
+[node name="street 5" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 376.808, -1086.06 )
+
+[node name="street6" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 226.386, -1086.06 )
+
+[node name="street7" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 77.7351, -1086.06 )
+
+[node name="street8" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 824.602, -1086.38 )
+
+[node name="street9" parent="bridges" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 975.238, -1086.7 )
 
 [node name="fuels" type="Node2D" parent="."]
 
 editor/display_folded = true
 
-[node name="fuel" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 640.143, 69.4041 )
 
-[node name="fuel 2" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel 2" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 384.343, -380.237 )
 
-[node name="fuel3" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel3" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 602.462, -1202.73 )
 
-[node name="fuel4" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel4" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 254.835, -1829.82 )
 
-[node name="fuel5" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel5" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 735.996, -2229.55 )
 
-[node name="fuel6" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel6" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 831.018, -3191.67 )
 
-[node name="fuel7" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel7" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 223.374, -3393.59 )
 
-[node name="fuel8" parent="fuels" instance=ExtResource( 6 )]
+[node name="fuel8" parent="fuels" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 832.228, -3589.76 )
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="enemy" parent="enemies" instance=ExtResource( 7 )]
+editor/display_folded = true
+
+[node name="enemy" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 549.334, -154.593 )
 transform/scale = Vector2( -1, 1 )
 
-[node name="enemy 2" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy 2" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 510.732, -570.638 )
 
-[node name="enemy 3" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy 3" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 602.954, -832.224 )
 
-[node name="enemy4" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy4" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 284.864, -1661.53 )
 
-[node name="enemy5" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy5" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 738.035, -2042.93 )
 
-[node name="enemy6" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy6" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 833.031, -2984.49 )
 
-[node name="enemy8" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy8" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 839.819, -3382.78 )
 
-[node name="enemy9" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy9" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 574.627, -3851.78 )
 
-[node name="enemy7" parent="enemies" instance=ExtResource( 7 )]
+[node name="enemy7" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 208.758, -3140.35 )
 
-[node name="enemy_tank" parent="enemies" instance=ExtResource( 8 )]
+[node name="enemy_tank" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 41.6148, -1088.44 )
 
-[node name="ship" parent="." instance=ExtResource( 9 )]
+[node name="ship" parent="." instance=ExtResource( 10 )]
 
-[node name="bullet" parent="." instance=ExtResource( 10 )]
+[node name="bullet" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 500, 448 )
 

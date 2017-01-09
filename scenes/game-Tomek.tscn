@@ -101,6 +101,8 @@ tile_data = IntArray( -5505024, 53, -5505023, 53, -5505022, 53, -5505021, 53, -5
 
 [node name="houses" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="house" parent="houses" instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 143.382, 272.749 )
@@ -136,6 +138,8 @@ transform/pos = Vector2( 830.793, -3899.64 )
 frame = 1
 
 [node name="bridges" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="bridge" parent="bridges" instance=ExtResource( 4 )]
 
@@ -227,6 +231,8 @@ transform/pos = Vector2( 973.951, -1086.54 )
 
 [node name="fuels" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="fuel" parent="fuels" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 640.143, 69.4041 )
@@ -266,6 +272,8 @@ transform/pos = Vector2( 832.228, -3589.76 )
 transform/pos = Vector2( 500, 448 )
 
 [node name="enemies" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="enemy" parent="enemies" instance=ExtResource( 8 )]
 

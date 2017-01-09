@@ -103,7 +103,7 @@ func set_score(points):
 
 func set_lives(number = -LIVES_STEP):
 	lives += number
-	lives_label.set_text("LIVES: " + str(lives))
+	lives_label.set_text(str(lives))
 	
 	if number == -LIVES_STEP:
 		set_pos(Vector2(0, last_bridge.get_pos().y + 250))

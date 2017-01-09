@@ -39,6 +39,7 @@ stretch_mode = 0
 
 [node name="score" type="Label" parent="hud"]
 
+rect/scale = Vector2( 1, 1.2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -70,15 +71,17 @@ max_lines_visible = -1
 
 [node name="lives" type="Label" parent="hud"]
 
+rect/scale = Vector2( 1, 1.2 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 15.0
-margin/top = 45.0
-margin/right = 65.0
-margin/bottom = 59.0
-text = "LIVES: 3"
+margin/left = 732.0
+margin/top = 577.0
+margin/right = 782.0
+margin/bottom = 591.0
+text = "3"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

@@ -3,6 +3,7 @@ extends Area2D
 
 const SCORE = 800
 const SCORE_TANK = 250
+
 var game
 var tank
 var tank_script = "enemy_tank.gd"
@@ -21,14 +22,12 @@ func _on_bridge_area_enter(area):
 	if area == game.ship:
 		game.ship.destroy()
 		
-	var file = area.get_script().get_path().get_file()
-	if file == tank_script:
+	if is_tank(area):
 		tank = area
 
 
 func _on_bridge_area_exit( area ):
-	var file = area.get_script().get_path().get_file()
-	if tank != null and file == tank_script:
+	if is_tank() and is_tank(area):
 		tank = null
 
 
@@ -37,12 +36,19 @@ func destroy():
 	get_node("boom_sfx").play("boom")
 	get_node("boom/animation").play("boom")
 	disconnect("area_enter", self, "_on_bridge_area_enter")
-	
-	if tank != null:
+	if is_tank():
 		tank.destroy()
 
 
 func get_score():
-	if tank != null:
+	if is_tank():
 		return SCORE + tank.SCORE_ENEMY
 	return SCORE
+	
+
+func is_tank(area = null):
+	if area == null:
+		return tank != null
+	else:
+		var file = area.get_script().get_path().get_file()
+		return file == tank_script

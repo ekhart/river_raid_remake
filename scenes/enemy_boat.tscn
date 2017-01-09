@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
+[ext_resource path="res://scripts/enemy_boat.gd" type="Script" id=1]
 [ext_resource path="res://gfx/statek_120_36.png" type="Texture" id=2]
 [ext_resource path="res://animation/boom/wybuch_3_80_80.png" type="Texture" id=3]
 [ext_resource path="res://sfx/Wybuch.wav" type="Sample" id=4]

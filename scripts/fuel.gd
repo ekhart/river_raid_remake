@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const SCORE = 100
+const SCORE = 80
 
 
 var game

@@ -51,6 +51,7 @@ texture = ExtResource( 2 )
 
 [node name="boom" type="Sprite" parent="."]
 
+transform/scale = Vector2( 1.8, 1.8 )
 texture = ExtResource( 3 )
 vframes = 8
 hframes = 8

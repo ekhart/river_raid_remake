@@ -119,8 +119,8 @@ func destroy():
 		boom_sfx.play("boom")
 		timer.start()
 	else:
-		queue_free()
 		game.over()
+		queue_free()
 
 
 func _on_timer_timeout():

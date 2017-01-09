@@ -37,13 +37,14 @@ func any_actions_released(event):
 
 func start(is_start):
 	set_fixed_process(is_start)
-	ship.set_fixed_process(is_start)
+	if is_ship(): ship.set_fixed_process(is_start)
 	bullet.set_fixed_process(is_start)
 
 
 func _fixed_process(delta):
-	set_pos(get_game_pos(delta))
-	hud.set_fuel()
+	if is_ship():
+		set_pos(get_game_pos(delta))
+		hud.set_fuel()
 
 
 func get_game_pos(delta):
@@ -73,4 +74,4 @@ func on_bullet_bridge_area_enter(bridge):
 	
 func over():
 	hud.show_over()
-	set_fixed_process(false)
+	start(false)

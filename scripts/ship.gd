@@ -114,7 +114,7 @@ func _on_ship_body_exit(body):
 
 
 func destroy():
-	if game.lives > 0:
+	if game.hud.lives > 0:
 		sprite.hide()
 		boom_animation.play("animation")
 		boom_sfx.play("boom")
@@ -127,5 +127,5 @@ func _on_timer_timeout():
 	boom_sfx.stop_all()
 	boom_animation.stop_all()
 	sprite.show()
-	game.set_lives()
+	game.hud.set_lives()
 	

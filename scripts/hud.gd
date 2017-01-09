@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const SCREEN_HEIGHT_WITHOUT_UI = 640
+const SCREEN_HEIGHT_WITHOUT_UI = 565 
 
 const FUEL_MAX = 100
 const FUEL_LOSS_STEP = 0.1

@@ -8,12 +8,17 @@ const BULLET_Y_OFFSET = 50
 var is_bullet
 var animate
 var game
+var sprite
+var boom 
+var boom_animation
 
 
 func _ready():
 	game = get_parent()
+	sprite = get_node("sprite")
+	boom = get_node("boom")
 	animate = get_node("sprite/animate")
-	hide_bullet()
+	boom_animation = get_node("boom/animation")
 	set_fixed_process(true)
 
 
@@ -24,14 +29,16 @@ func _fixed_process(delta):
 		var ship_pos = game.ship.get_pos()
 		pos.x = ship_pos.x
 		pos.y = ship_pos.y - BULLET_Y_OFFSET
-		show()
+		
+		boom.hide()
+		boom_animation.stop_all()
 		is_bullet = true
+		sprite.show()
 		get_node("sfx").play("shoot")
-		animate.set_active(true)
 		animate.play("animate")
 		
 
-	if (is_visible()):
+	if (sprite.is_visible()):
 		pos.y += -BULLET_SPEED * delta
 		set_pos(pos)
 
@@ -50,10 +57,11 @@ func _on_bullet_body_enter(body):
 
 
 func hide_bullet():
-	hide()
 	is_bullet = false
-	animate.set_active(false)
 	animate.stop_all()
+	sprite.hide()
+	boom.show()
+	boom_animation.play("animation")
 
 
 func is_bullet(body):

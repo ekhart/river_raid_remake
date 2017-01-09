@@ -124,6 +124,7 @@ func destroy():
 
 
 func _on_timer_timeout():
+	timer.stop()
 	boom_sfx.stop_all()
 	boom_animation.stop_all()
 	sprite.show()

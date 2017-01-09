@@ -74,9 +74,11 @@ frame = 1
 
 [node name="bridges" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="bridge" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 504.874, 565.492 )
+
+[node name="bridge 11 " parent="bridges" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 825.476, -1086.34 )
 

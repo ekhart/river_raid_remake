@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+const SCREEN_HEIGHT_WITHOUT_UI = 640
 
 const FUEL_MAX = 100
 const FUEL_LOSS_STEP = 0.1
@@ -67,7 +68,12 @@ func set_lives(number = -LIVES_STEP):
 	lives_label.set_text(str(lives))
 	
 	if number == -LIVES_STEP:
-		game.set_pos(Vector2(0, game.last_bridge.get_pos().y + 250))
+		game.set_global_pos(Vector2(0, 0)) # side effect: effect get_pos for last bridge
+		# reset all game (not only pos but also enemies pos)
+		
+		var bridge_pos = game.last_bridge.get_pos()
+		game.set_pos(Vector2(0, -bridge_pos.y + SCREEN_HEIGHT_WITHOUT_UI))
+		
 		game.ship.set_global_pos(game.ship.START_POS) # reset ship position
 		game.last_bridge.show()
 

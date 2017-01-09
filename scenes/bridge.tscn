@@ -87,4 +87,6 @@ default/chorus_send = 0.0
 
 [connection signal="area_enter" from="." to="." method="_on_bridge_area_enter"]
 
+[connection signal="area_exit" from="." to="." method="_on_bridge_area_exit"]
+
 

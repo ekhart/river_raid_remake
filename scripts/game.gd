@@ -67,7 +67,7 @@ func is_ship():
 
 func on_bullet_bridge_area_enter(bridge):
 	bullet.hide_bullet()
-	hud.set_score(bridge.SCORE)
+	hud.set_score(bridge.get_score())
 	hud.set_bridge()
 	last_bridge = bridge
 	

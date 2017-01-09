@@ -111,7 +111,7 @@ transform/pos = Vector2( 678.326, -423.99 )
 
 [node name="enemy_ship 2" parent="enemies" instance=ExtResource( 11 )]
 
-transform/pos = Vector2( 57.6389, 19.3395 )
+transform/pos = Vector2( 325.783, 147.871 )
 
 [node name="ship" parent="." instance=ExtResource( 12 )]
 

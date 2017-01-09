@@ -2,31 +2,48 @@ extends Node2D
 
 
 var viewport_size
+
 var hud
-var is_refuel
 var tile_map
 var ship
 var bullet
 var last_bridge
 
+var is_refuel
+var is_started
 
 func _ready():
 	viewport_size = get_viewport().get_rect().size
-
 	hud = get_node("hud")
 	tile_map = get_node("tile_map")
 	ship = get_node("ship")
 	bullet = get_node("bullet")
 	last_bridge = get_node("bridges/bridge")
+	set_process_input(true)
+	
+	
+func _input(event):
+	if not is_fixed_processing() and any_actions_released(event):
+		start(true)
 
-	set_fixed_process(true)
+
+func any_actions_released(event):
+	var actions = ["ui_up", "ui_down", "ui_left", "ui_right", "ui_accept"]
+	for action in actions:
+		if event.is_action_released(action):
+			return true
+	return false
+
+
+func start(is_start):
+	set_fixed_process(is_start)
+	ship.set_fixed_process(is_start)
+	bullet.set_fixed_process(is_start)
 
 
 func _fixed_process(delta):
 	set_pos(get_game_pos(delta))
-
-	if is_ship():
-		hud.set_fuel()
+	hud.set_fuel()
 
 
 func get_game_pos(delta):

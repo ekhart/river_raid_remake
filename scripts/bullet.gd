@@ -19,7 +19,6 @@ func _ready():
 	boom = get_node("boom")
 	animate = get_node("sprite/animate")
 	boom_animation = get_node("boom/animation")
-	set_fixed_process(true)
 
 
 func _fixed_process(delta):

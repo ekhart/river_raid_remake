@@ -76,6 +76,9 @@ func set_lives(number = -LIVES_STEP):
 		
 		game.ship.set_global_pos(game.ship.START_POS) # reset ship position
 		game.last_bridge.show()
+		
+		fuel = FUEL_MAX
+		game.start(false)
 
 
 func set_bridge():

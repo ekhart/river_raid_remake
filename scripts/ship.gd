@@ -30,7 +30,6 @@ func _ready():
 	center_image = load('res://animation/ship/l0_Plane1.png')
 	is_accelerate = false
 	is_downturn = false
-	set_fixed_process(true)
 
 
 func _fixed_process(delta):

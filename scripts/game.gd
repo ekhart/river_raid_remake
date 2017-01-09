@@ -44,7 +44,7 @@ func get_game_pos(delta):
 
 
 func is_ship():
-	return has_node("ship")
+	return has_node("ship") and ship.is_alive()
 
 
 func on_bullet_bridge_area_enter(bridge):

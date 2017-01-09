@@ -129,3 +129,7 @@ func _on_timer_timeout():
 	sprite.show()
 	game.hud.set_lives()
 	
+	
+func is_alive():
+	return sprite.is_visible()
+	

@@ -8,9 +8,6 @@ const SCORE_ENEMY = 100
 
 var game
 var last_x
-var animated_sprite
-var elapsed = 0
-
 
 
 func _ready():
@@ -67,6 +64,7 @@ func _on_enemy_area_enter(body):
 
 func destroy():
 	get_node("sprite").hide()
+	get_node("boom").show()
 	get_node("boom/animation").play("animation")
 	get_node("boom_sfx").play("boom")
 	disconnect("area_enter", self, "_on_enemy_area_enter")

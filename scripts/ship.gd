@@ -121,6 +121,7 @@ func destroy():
 		timer.start()
 	else:
 		queue_free()
+		game.over()
 
 
 func _on_timer_timeout():

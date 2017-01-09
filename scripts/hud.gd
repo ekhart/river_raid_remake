@@ -81,3 +81,7 @@ func set_lives(number = -LIVES_STEP):
 func set_bridge():
 	bridge += 1
 	bridge_label.set_text(str(bridge))
+	
+	
+func show_over():
+	get_node("over").show()

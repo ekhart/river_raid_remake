@@ -52,3 +52,8 @@ func on_bullet_bridge_area_enter(bridge):
 	hud.set_score(bridge.SCORE)
 	hud.set_bridge()
 	last_bridge = bridge
+	
+	
+func over():
+	hud.show_over()
+	set_fixed_process(false)

@@ -53,8 +53,6 @@ frame = 1
 
 [node name="bridges" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="bridge" parent="bridges" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 500, 600 )
@@ -79,6 +77,14 @@ transform/pos = Vector2( 221.377, -778.289 )
 
 transform/pos = Vector2( 369.933, -778.289 )
 
+[node name="bridge 4" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 350, 150.565 )
+
+[node name="bridge 5" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 650, 150 )
+
 [node name="fuels" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -92,6 +98,8 @@ transform/pos = Vector2( 300, -100 )
 transform/pos = Vector2( 691.1, 260.796 )
 
 [node name="enemies" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="enemy_ship" parent="enemies" instance=ExtResource( 7 )]
 

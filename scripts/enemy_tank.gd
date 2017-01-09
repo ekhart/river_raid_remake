@@ -9,7 +9,11 @@ func _fixed_process(delta):
 	var pos = get_pos()
 	pos.x += SPEED
 	set_pos(pos)
-	
-	
+
+
 func set_enemy_scale(pos):
+	pass
+
+
+func _on_enemy_body_enter(body):
 	pass

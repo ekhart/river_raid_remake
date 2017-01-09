@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=1]
 
-[ext_resource path="res://bullet.gd" type="Script" id=1]
+[ext_resource path="res://scripts/bullet.gd" type="Script" id=1]
 [ext_resource path="res://gfx/shot/strzal_2.png" type="Texture" id=2]
 [ext_resource path="res://sfx/Strzał.wav" type="Sample" id=3]
 

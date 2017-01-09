@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://bridge.gd" type="Script" id=1]
+[ext_resource path="res://scripts/bridge.gd" type="Script" id=1]
 [ext_resource path="res://gfx/most_150x50.png" type="Texture" id=2]
 [ext_resource path="res://animation/effects/wybuch_4_90_90.png" type="Texture" id=3]
 [ext_resource path="res://sfx/Wybuch.wav" type="Sample" id=4]

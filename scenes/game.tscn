@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://tiles.res" type="TileSet" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/enemy_ship.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/enemy_baloon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemy_boat.tscn" type="PackedScene" id=11]
 
 [node name="game" type="Node2D"]
 
@@ -156,5 +158,13 @@ transform/pos = Vector2( 350, 200 )
 [node name="enemy" parent="enemies" instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 653.715, -160.812 )
+
+[node name="enemy_baloon" parent="enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 449.756, -285.246 )
+
+[node name="enemy_boat" parent="enemies" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 678.326, -423.99 )
 
 

@@ -54,21 +54,6 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="fuel" type="Label" parent="hud"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 15.0
-margin/top = 30.0
-margin/right = 78.0
-margin/bottom = 44.0
-text = "FUEL: 100"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
 [node name="lives" type="Label" parent="hud"]
 
 rect/scale = Vector2( 1, 1.2 )
@@ -102,6 +87,27 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="fuel" type="HSlider" parent="hud"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 410.0
+margin/top = 539.0
+margin/right = 514.0
+margin/bottom = 555.0
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+tick_count = 0
+ticks_on_borders = true
+focus_mode = 2
 
 [node name="tile_map" type="TileMap" parent="."]
 

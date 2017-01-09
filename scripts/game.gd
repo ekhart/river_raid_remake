@@ -17,7 +17,7 @@ var viewport_size
 var score
 var score_label
 var fuel
-var fuel_label
+var fuel_slider
 var lives
 var lives_label
 var bridge
@@ -37,7 +37,7 @@ func _ready():
 	score = 0
 	score_label = get_node("hud/score")
 	fuel = FUEL_MAX
-	fuel_label = get_node("hud/fuel")
+	fuel_slider = get_node("hud/fuel")
 	lives = LIVES_MAX
 	lives_label = get_node("hud/lives")
 	is_refuel = false
@@ -84,7 +84,7 @@ func set_fuel():
 			ship.play_until_end("max_fuel")
 
 	fuel -= FUEL_LOSS_STEP
-	fuel_label.set_text("FUEL: " + str(fuel))
+	fuel_slider.set_value(fuel)
 	ship.play_until_end("refuel", is_refuel)
 
 

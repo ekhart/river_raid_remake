@@ -92,7 +92,7 @@ func set_score(points):
 	var last_score = score
 	
 	score += points
-	score_label.set_text("SCORE: " + str(score))
+	score_label.set_text(str(score))
 	
 	var last_mod = last_score % LIVES_NEXT
 	var current_mod = score % LIVES_NEXT

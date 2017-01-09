@@ -43,6 +43,10 @@ func set_fuel():
 	fuel -= FUEL_LOSS_STEP
 	fuel_slider.set_value(fuel)
 	game.ship.play_until_end("refuel", game.is_refuel)
+	
+	if fuel < 0:
+		game.ship.destroy()
+		fuel = FUEL_MAX
 
 
 func set_score(points):

@@ -17,7 +17,7 @@ func _on_fuel_area_enter(area):
 	if area == game.bullet:
 		destroy()
 		game.bullet.hide_bullet()
-		game.set_score(SCORE)
+		game.hud.set_score(SCORE)
 
 
 func _on_fuel_area_exit(area):

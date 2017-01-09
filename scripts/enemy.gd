@@ -56,7 +56,7 @@ func _on_enemy_area_enter(body):
 		destroy()
 
 		game.bullet.hide_bullet()
-		game.set_score(SCORE_ENEMY)
+		game.hud.set_score(SCORE_ENEMY)
 
 	if body == game.ship:
 		game.ship.destroy()

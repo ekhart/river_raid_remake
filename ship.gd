@@ -114,7 +114,7 @@ func _on_ship_body_exit(body):
 
 
 func destroy():
-	if game.hud.lives > 0:
+	if game.lives > 0:
 		sprite.hide()
 		boom_animation.play("animation")
 		boom_sfx.play("boom")

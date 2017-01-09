@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy_baloon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/enemy_boat.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/enemy_tank.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=13]
 
 [node name="game" type="Node2D"]
 
@@ -66,6 +67,18 @@ transform/pos = Vector2( 500, 150 )
 
 transform/pos = Vector2( 500, -500 )
 
+[node name="bridge 3" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 74.536, -778.456 )
+
+[node name="bridge4" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 221.377, -778.289 )
+
+[node name="bridge5" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 369.933, -778.289 )
+
 [node name="fuels" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -96,9 +109,13 @@ transform/pos = Vector2( 449.756, -285.246 )
 
 transform/pos = Vector2( 678.326, -423.99 )
 
-[node name="ship" parent="." instance=ExtResource( 11 )]
+[node name="enemy_ship 2" parent="enemies" instance=ExtResource( 11 )]
 
-[node name="bullet" parent="." instance=ExtResource( 12 )]
+transform/pos = Vector2( 57.6389, 19.3395 )
+
+[node name="ship" parent="." instance=ExtResource( 12 )]
+
+[node name="bullet" parent="." instance=ExtResource( 13 )]
 
 transform/pos = Vector2( 500, 448 )
 

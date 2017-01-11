@@ -257,6 +257,8 @@ transform/pos = Vector2( 679.728, -7464.05 )
 
 [node name="enemies" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="enemy" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 549.334, -154.593 )

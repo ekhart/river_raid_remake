@@ -88,3 +88,6 @@ func set_bridge():
 	
 func show_over():
 	get_node("over").show()
+	
+func hide_splash():
+	get_node("splash").hide()

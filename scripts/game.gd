@@ -25,6 +25,7 @@ func _ready():
 func _input(event):
 	if not is_fixed_processing() and any_actions_released(event):
 		start(true)
+		hud.hide_splash()
 
 
 func any_actions_released(event):

@@ -79,21 +79,19 @@ frame = 1
 
 [node name="bridges" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="bridge" parent="bridges" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 504.874, 565.492 )
 
-[node name="bridge8" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge8" parent="bridges" groups=[ "2" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 673.941, -2532.68 )
 
-[node name="bridge9" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge9" parent="bridges" groups=[ "2" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 525.028, -2532.68 )
 
-[node name="bridge10" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge10" parent="bridges" groups=[ "2" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 375.213, -2532.68 )
 
@@ -105,35 +103,35 @@ transform/pos = Vector2( 974.955, -4127.78 )
 
 transform/pos = Vector2( 824.955, -4127.78 )
 
-[node name="bridge15" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge15" parent="bridges" groups=[ "3" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 674.954, -4127.78 )
 
-[node name="bridge20" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge20" parent="bridges" groups=[ "4" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 524.261, -6024.73 )
 
-[node name="bridge23" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge23" parent="bridges" groups=[ "5" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 524.261, -7885.32 )
 
-[node name="bridge24" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge24" parent="bridges" groups=[ "5" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 671.238, -7885.32 )
 
-[node name="bridge25" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge25" parent="bridges" groups=[ "5" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 374.26, -7885.32 )
 
-[node name="bridge21" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge21" parent="bridges" groups=[ "4" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 673.846, -6024.73 )
 
-[node name="bridge22" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge22" parent="bridges" groups=[ "4" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 374.677, -6024.73 )
 
-[node name="bridge16" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge16" parent="bridges" groups=[ "3" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 525.954, -4127.78 )
 
@@ -149,11 +147,11 @@ transform/pos = Vector2( 225.954, -4127.78 )
 
 transform/pos = Vector2( 75.9543, -4127.78 )
 
-[node name="bridge1" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge1" parent="bridges" groups=[ "1" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 526.932, -1085.62 )
 
-[node name="bridge 1" parent="bridges" instance=ExtResource( 5 )]
+[node name="bridge 1" parent="bridges" groups=[ "1" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 675.229, -1086.06 )
 

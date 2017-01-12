@@ -16,12 +16,12 @@ func _ready():
 
 func _on_bridge_area_enter(area):
 	if area == game.bullet:
-		destroy()
+		destroy_parts()
 		game.on_bullet_bridge_area_enter(self)
 
 	if area == game.ship:
 		game.ship.destroy()
-		
+
 	if is_tank(area):
 		tank = area
 
@@ -29,6 +29,22 @@ func _on_bridge_area_enter(area):
 func _on_bridge_area_exit( area ):
 	if is_tank() and is_tank(area):
 		tank = null
+
+
+func destroy_parts():
+	var groups = get_groups()
+	if groups.size() >= 1:
+		var id = groups[0]
+		for bridge in get_parent().get_children():
+			var bridge_groups = bridge.get_groups()
+			if bridge_groups.size() >= 1:
+				var bridge_id = bridge_groups[0]
+				if id == bridge_id and bridge.alive():
+					bridge.destroy()
+
+
+func alive():
+	return get_node("sprite").is_visible()
 
 
 func destroy():

@@ -40,6 +40,7 @@ samples/boom = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
 
 [node name="enemy_ship" type="Area2D"]
 
+transform/pos = Vector2( 1, 0 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 3.57125, 0, 0, 1.56102, 0, 0 )

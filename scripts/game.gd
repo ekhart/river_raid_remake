@@ -12,6 +12,8 @@ var last_bridge
 var is_refuel
 var is_started
 
+var reload
+
 func _ready():
 	viewport_size = get_viewport().get_rect().size
 	hud = get_node("hud")
@@ -19,6 +21,7 @@ func _ready():
 	ship = get_node("ship")
 	bullet = get_node("bullet")
 	last_bridge = get_node("bridges/bridge")
+	reload = get_node("reload")
 	set_process_input(true)
 	
 	
@@ -76,3 +79,8 @@ func on_bullet_bridge_area_enter(bridge):
 func over():
 	hud.show_over()
 	start(false)
+	reload.start()
+
+func _on_reload_timeout():
+	reload.stop()
+	get_tree().reload_current_scene()

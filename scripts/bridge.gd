@@ -32,16 +32,26 @@ func _on_bridge_area_exit( area ):
 
 
 func destroy_parts():
-	var groups = get_groups()
-	if groups.size() >= 1:
-		var id = groups[0]
-		for bridge in get_parent().get_children():
-			var bridge_groups = bridge.get_groups()
-			if bridge_groups.size() >= 1:
-				var bridge_id = bridge_groups[0]
-				if id == bridge_id and bridge.alive():
-					bridge.destroy()
+	var id = get_group_id()
+	for bridge in get_parent().get_children():
+		if bridge extends Area2D:
+			var bridge_id = bridge.get_group_id()
+			if not_default_group(bridge_id) and id == bridge_id and bridge.alive():
+				bridge.destroy()
 
+
+func get_group_id():
+	if has_group():
+		return get_groups()[0]
+	return null
+
+
+func has_group():
+	return get_groups().size() >= 1
+	
+	
+func not_default_group(id):
+	return id != null
 
 func alive():
 	return get_node("sprite").is_visible()

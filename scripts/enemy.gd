@@ -9,11 +9,12 @@ const CALL_BASE_FIXED_PROCESS = true
 
 var game
 var last_x
+var start_wiggle_offset
 
 
 func _ready():
 	game = get_parent().get_parent()
-	last_x = get_pos().x
+	start_wiggle_offset = randi() * 10000 + 1
 
 
 func _fixed_process(delta):
@@ -24,7 +25,7 @@ func _fixed_process(delta):
 	last_x = pos.x
 
 	var tics = OS.get_ticks_msec()
-	var x = tics % 100000 / 200
+	var x = (tics + start_wiggle_offset) % 100000 / 200
 	pos.x += ENEMY_MAX_WIGGLE * cos(x)
 	pos.y += ENEMY_VERTICAL_SPEED
 	set_pos(pos)

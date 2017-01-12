@@ -361,6 +361,10 @@ transform/pos = Vector2( 41.6148, -1088.44 )
 
 transform/pos = Vector2( 626, -5025 )
 
+[node name="enemy_baloon 2" parent="enemies" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 558.302, -1512.77 )
+
 [node name="ship" parent="." instance=ExtResource( 11 )]
 
 [node name="bullet" parent="." instance=ExtResource( 12 )]

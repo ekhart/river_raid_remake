@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/hud.gd" type="Script" id=1]
 [ext_resource path="res://gfx/Panel Dolny__630x60.png" type="Texture" id=2]
-[ext_resource path="res://gfx/logo.png" type="Texture" id=3]
+[ext_resource path="res://gfx/logo1024_authors.png" type="Texture" id=3]
 
 [node name="hud" type="CanvasLayer"]
 
@@ -136,9 +136,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -16.0
+margin/left = 0.0
 margin/top = 0.0
-margin/right = -522.0
+margin/right = -538.0
 margin/bottom = 600.0
 texture = ExtResource( 3 )
 stretch_mode = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=2]
@@ -9,9 +9,10 @@
 [ext_resource path="res://scenes/fuel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy_tank.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sfx/RR_Main_Theme.ogg" type="AudioStream" id=12]
+[ext_resource path="res://scenes/enemy_baloon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sfx/RR_Main_Theme.ogg" type="AudioStream" id=13]
 
 [node name="game" type="Node2D"]
 
@@ -356,15 +357,19 @@ transform/pos = Vector2( 208.758, -3140.35 )
 
 transform/pos = Vector2( 41.6148, -1088.44 )
 
-[node name="ship" parent="." instance=ExtResource( 10 )]
+[node name="enemy_baloon" parent="enemies" instance=ExtResource( 10 )]
 
-[node name="bullet" parent="." instance=ExtResource( 11 )]
+transform/pos = Vector2( 626, -5025 )
+
+[node name="ship" parent="." instance=ExtResource( 11 )]
+
+[node name="bullet" parent="." instance=ExtResource( 12 )]
 
 transform/pos = Vector2( 500, 448 )
 
 [node name="music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 12 )
+stream/stream = ExtResource( 13 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0

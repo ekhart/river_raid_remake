@@ -59,8 +59,9 @@ func _on_visibility_exit_screen():
 
 
 func _on_enemy_body_enter(body):
-	if body == game.tile_map:
-		destroy()
+	pass
+	#if body == game.tile_map:
+	#	destroy()
 
 
 func _on_enemy_area_enter(body):

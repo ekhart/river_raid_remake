@@ -44,7 +44,14 @@ func set_enemy_scale(pos):
 
 
 func _on_visibility_enter_screen():
+	play_sprite_move()
 	set_fixed_process(true)
+	
+	
+func play_sprite_move():
+	var sprite_move = "sprite/move"
+	if has_node(sprite_move):
+		get_node(sprite_move).play("move")
 
 
 func _on_visibility_exit_screen():

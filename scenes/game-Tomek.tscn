@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=2]
@@ -10,9 +10,10 @@
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy_tank.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/enemy_baloon.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=12]
-[ext_resource path="res://sfx/RR_Main_Theme.ogg" type="AudioStream" id=13]
+[ext_resource path="res://scenes/enemy_boat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sfx/RR_Main_Theme.ogg" type="AudioStream" id=14]
 
 [node name="game" type="Node2D"]
 
@@ -260,11 +261,6 @@ transform/pos = Vector2( 679.728, -7464.05 )
 
 editor/display_folded = true
 
-[node name="enemy" parent="enemies" instance=ExtResource( 8 )]
-
-transform/pos = Vector2( 549.334, -154.593 )
-transform/scale = Vector2( -1, 1 )
-
 [node name="enemy 2" parent="enemies" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 510.732, -570.638 )
@@ -365,15 +361,19 @@ transform/pos = Vector2( 626, -5025 )
 
 transform/pos = Vector2( 558.302, -1512.77 )
 
-[node name="ship" parent="." instance=ExtResource( 11 )]
+[node name="enemy_boat" parent="enemies" instance=ExtResource( 11 )]
 
-[node name="bullet" parent="." instance=ExtResource( 12 )]
+transform/pos = Vector2( 537.897, -294.548 )
+
+[node name="ship" parent="." instance=ExtResource( 12 )]
+
+[node name="bullet" parent="." instance=ExtResource( 13 )]
 
 transform/pos = Vector2( 500, 448 )
 
 [node name="music" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 13 )
+stream/stream = ExtResource( 14 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0

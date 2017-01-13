@@ -5,8 +5,8 @@
 [ext_resource path="res://tiles.res" type="TileSet" id=3]
 [ext_resource path="res://scenes/house.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/bridge.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/enemy_ship.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/street.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/street.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemy_ship.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/fuel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/enemy_tank.tscn" type="PackedScene" id=10]
@@ -84,10 +84,6 @@ frame = 1
 
 transform/pos = Vector2( 504.874, 565.492 )
 
-[node name="enemy_ship" parent="bridges/bridge" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( -462.283, -1923.12 )
-
 [node name="bridge8" parent="bridges" groups=[ "2" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 673.941, -2532.68 )
@@ -156,45 +152,74 @@ transform/pos = Vector2( 75.9543, -4127.78 )
 
 transform/pos = Vector2( 526.932, -1085.62 )
 
+[node name="bridge2" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 379.666, -1085.62 )
+
+[node name="bridge3" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 230.688, -1085.62 )
+
+[node name="bridge4" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 81.7099, -1085.62 )
+
+[node name="bridge5" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 824.888, -1085.62 )
+
+[node name="bridge6" parent="bridges" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 973.867, -1085.62 )
+
 [node name="bridge 1" parent="bridges" groups=[ "1" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 675.229, -1086.06 )
 
-[node name="street" parent="bridges" instance=ExtResource( 7 )]
+[node name="street" parent="bridges" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 225, -2533 )
 
-[node name="street 2" parent="bridges" instance=ExtResource( 7 )]
+[node name="street 2" parent="bridges" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 76.2712, -2532.68 )
 
-[node name="street 3" parent="bridges" instance=ExtResource( 7 )]
+[node name="street 3" parent="bridges" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 824, -2532.68 )
 
-[node name="street 4" parent="bridges" instance=ExtResource( 7 )]
+[node name="street 4" parent="bridges" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 975, -2532.68 )
 
-[node name="street 5" parent="bridges" instance=ExtResource( 7 )]
+[node name="street 5" parent="bridges" instance=ExtResource( 6 )]
 
+visibility/visible = false
 transform/pos = Vector2( 376.808, -1086.06 )
 
-[node name="street6" parent="bridges" instance=ExtResource( 7 )]
+[node name="street6" parent="bridges" instance=ExtResource( 6 )]
 
+visibility/visible = false
 transform/pos = Vector2( 226.386, -1086.06 )
 
-[node name="street7" parent="bridges" instance=ExtResource( 7 )]
+[node name="street7" parent="bridges" instance=ExtResource( 6 )]
 
+visibility/visible = false
 transform/pos = Vector2( 77.7351, -1086.06 )
 
-[node name="street8" parent="bridges" instance=ExtResource( 7 )]
+[node name="street8" parent="bridges" instance=ExtResource( 6 )]
 
+visibility/visible = false
 transform/pos = Vector2( 824.602, -1086.38 )
 
-[node name="street9" parent="bridges" instance=ExtResource( 7 )]
+[node name="street9" parent="bridges" instance=ExtResource( 6 )]
 
+visibility/visible = false
 transform/pos = Vector2( 975.238, -1086.7 )
+
+[node name="enemy_ship" parent="bridges" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 42.591, -1357.63 )
 
 [node name="fuels" type="Node2D" parent="."]
 

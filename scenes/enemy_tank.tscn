@@ -113,6 +113,13 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
+[node name="destroy" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
 [connection signal="area_enter" from="." to="." method="_on_enemy_area_enter"]
 
 [connection signal="body_enter" from="." to="." method="_on_enemy_body_enter"]
@@ -120,5 +127,7 @@ default/chorus_send = 0.0
 [connection signal="enter_screen" from="visibility" to="." method="_on_visibility_enter_screen"]
 
 [connection signal="exit_screen" from="visibility" to="." method="_on_visibility_exit_screen"]
+
+[connection signal="timeout" from="destroy" to="." method="_on_destroy_timeout"]
 
 

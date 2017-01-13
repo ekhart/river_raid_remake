@@ -22,19 +22,22 @@ func _on_bridge_area_enter(area):
 	if area == game.ship:
 		game.ship.destroy()
 
-	if is_tank(area):
+	if is_tank(area) and alive():
 		tank = area
+		tank.set_bridge(self)
 
 
 func _on_bridge_area_exit( area ):
 	if is_tank() and is_tank(area):
+		tank.set_bridge(null)
 		tank = null
+		
 
 
 func destroy_parts():
 	var id = get_group_id()
 	for bridge in get_parent().get_children():
-		if bridge extends Area2D:
+		if bridge.has_method("get_group_id"):
 			var bridge_id = bridge.get_group_id()
 			if not_default_group(bridge_id) and id == bridge_id and bridge.alive():
 				bridge.destroy()
